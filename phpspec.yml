@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: ConcursoMovil12
+        psr4_prefix: ConcursoMovil12
+        src_path: app
