@@ -1,8 +1,4 @@
-@extends('template.template')
-@include('alerts.success')
-@section('content')
-
-	<div class="razas">
+		<div class="razas">
 		
 			<div class="row">
 			@foreach($razas as $raza)
@@ -61,10 +57,3 @@
 			</div>
 		
 		{!!$razas->render()!!}
-	</div>
-
-@endsection
-
-@section('scripts')
-		{!!Html::script('js/script1.js')!!}
-	@endsection

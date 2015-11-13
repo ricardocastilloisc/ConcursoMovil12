@@ -27,7 +27,7 @@
     </div>
   </div>
   </a> 
-  <a href="">
+  <a href="{!!URL::to('/raza')!!}">
   <div class="col-md-3 col-sm-3 col-xs-6">
     <div class="dashboard-div-wrapper bk-clr-three"> <i  class="fa fa-book dashboard-div-icon" ></i>
       <div class="progress progress-striped active">

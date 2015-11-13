@@ -24,14 +24,27 @@ class RazaController extends Controller
      */
     public function __construct()
     {
+        //buscamos los datos para no solictarlo cada rato en 
+        //en donde esta los edit y demas en el arreglos son las
+        //funciones donde se haran las modificaciones
         $this->beforeFilter('@find',['only' =>['edit','update','destroy']]);    
     }
     public function find(Route $route)
     {
-        $this->raza = Animales::find($route->getParameter('raza')); 
+        //funcion para buscar
+        $this->raza = Razas::find($route->getParameter('raza')); 
     }
-    public function index()
+    public function index(Request $request)
     {
+        //busco los datos de las razas y se compagina
+        $razas = Razas::paginate(4); 
+        //si se ejecuto el ajax vuelve hacer la insturccion
+        if($request->ajax())
+        {
+            return response()->json(view('raza.razas', compact('razas'))->render());
+        }
+        //enviamos la variable osea todos los datos se van a la vista
+        return view('raza.index',compact('razas'));
 
         //
     }
@@ -43,6 +56,7 @@ class RazaController extends Controller
      */
     public function create()
     {
+        //redireccionamos a la vista llamada create que esta en la carpeta 
         return view('raza.create');
         //
     }
@@ -57,7 +71,7 @@ class RazaController extends Controller
     {
         Razas::create($request->all());
         //esta parte es para mandar un mensaje con una variable
-        return Redirect::to('/animales');
+        return Redirect::to('/raza');
         //
     }
 
@@ -80,6 +94,7 @@ class RazaController extends Controller
      */
     public function edit($id)
     {
+        return view('raza.edit',['raza'=>$this->raza]);
         //
     }
 

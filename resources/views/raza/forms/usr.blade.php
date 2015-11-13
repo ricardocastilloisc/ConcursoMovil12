@@ -7,9 +7,6 @@
   {!!Form::label('Tiempo Aproximado de Procucción')!!}
   {!!Form::number('minutos_de_produccion_de_leche',null,['class'=>'form-control', 'placeholder'=>'En minutos','style'=>'text-transform:uppercase'])!!}
 </div>
-
-
-
 <div class="form-group">
   {!!Form::label('Cada cuando tiene mes de en celo: ')!!}
   {!!Form::number('meses_de_celo',null,['class'=>'form-control', 'placeholder'=>'En meses','style'=>'text-transform:uppercase'])!!}

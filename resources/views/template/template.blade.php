@@ -8,7 +8,7 @@
 <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-<title>Login</title>
+<title>Control Ganadero</title>
 <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
 <!-- FONT AWESOME ICONS  -->
 <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet" />
@@ -76,5 +76,8 @@
 <script src="{{ asset('js/jquery-1.11.1.js') }}"></script> 
 <!-- BOOTSTRAP SCRIPTS  --> 
 <script src="{{ asset('js/bootstrap.js') }}"></script>
+
+     @section('scripts')
+     @show
 </body>
 </html>
