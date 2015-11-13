@@ -56,7 +56,11 @@
 
 <!-- MENU SECTION END-->
 <div class="content-wrapper">
+        <div class="container">
+       
   <div class="container"> @yield('content') </div>
+
+</div>
 </div>
 <!-- CONTENT-WRAPPER SECTION END-->
 <footer>

@@ -3,17 +3,19 @@
 namespace ConcursoMovil12\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
-use Session;
-use Redirect;
-use ConcursoMovil12\Animales;
-use ConcursoMovil12\Http\Requests\AnimalRequest;
 
 use ConcursoMovil12\Http\Requests;
 use ConcursoMovil12\Http\Controllers\Controller;
+
+use Illuminate\Routing\Route;
+use Session;
+use Redirect;
 use ConcursoMovil12\Razas;
 
-class AnimalesController extends Controller
+
+use ConcursoMovil12\Http\Requests\RazaRequest;
+
+class RazaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,11 +28,11 @@ class AnimalesController extends Controller
     }
     public function find(Route $route)
     {
-        $this->animales = Animales::find($route->getParameter('animal')); 
+        $this->raza = Animales::find($route->getParameter('raza')); 
     }
     public function index()
     {
-        return view('animales.index');
+
         //
     }
 
@@ -41,7 +43,7 @@ class AnimalesController extends Controller
      */
     public function create()
     {
-        return view('animales.create');
+        return view('raza.create');
         //
     }
 
@@ -51,9 +53,9 @@ class AnimalesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AnimalRequest $request)
+    public function store(RazaRequest $request)
     {
-        Animales::create($request->all());
+        Razas::create($request->all());
         //esta parte es para mandar un mensaje con una variable
         return Redirect::to('/animales');
         //

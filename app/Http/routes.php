@@ -16,3 +16,4 @@ Route::get('animales', [
 	]);
 
 Route::resource('animal','AnimalesController');
+Route::resource('raza','RazaController');

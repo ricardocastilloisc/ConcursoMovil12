@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAnimalesTable extends Migration
+class CreateRazasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,12 @@ class CreateAnimalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('animales', function (Blueprint $table) {
+        Schema::create('razas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre', 255);
-            $table->string('arete',255);
-            $table->string('raza',255);
-            $table->date('fecha_de_compra');
-            $table->date('fecha_de_nacimiento');
-            $table->string('peso',255);
-            $table->integer('sexo');
+            $table->integer('minutos_de_produccion_de_leche');
+            $table->integer('meses_de_celo');
+            $table->integer('meses_de_gestacion');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateAnimalesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('animales');
+        Schema::drop('razas');
     }
 }

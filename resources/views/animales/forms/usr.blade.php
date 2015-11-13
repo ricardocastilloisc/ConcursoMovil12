@@ -1,14 +1,14 @@
 <div class="form-group">
-   </label>{!!Form::label('Nombre:')!!}
+   {!!Form::label('Nombre:')!!}
    {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Ingrese su Nombre'])!!}  
 </div>
 <div class="form-group">
-   </label>{!!Form::label('Arete:')!!}
-   {!!Form::text('arete',null,['class'=>'form-control', 'placeholder'=>'Ingrese su Nombre'])!!}  
+   {!!Form::label('Arete:')!!}
+   {!!Form::text('arete',null,['class'=>'form-control', 'placeholder'=>'Ingrese el Arete'])!!}
 </div>
 <div class="form-group">
-    <label for="raza">Text Field:</label>
-    <input type="text" name="raza" class="form-control">
+    {!!Form::label('Raza:')!!}
+    {!!Form::text('raza',null,['class'=>'form-control', 'placeholder'=>'Ingrese la raza'])!!}
 </div>
 <div class="form-group">
     <label for="fecha_de_compra">Fecha de Compra:</label>
@@ -19,8 +19,8 @@
     <input type="date" name="fecha_de_nacimiento" class="form-control">
  </div>
 <div class="form-group">
-    <label for="peso">Peso:</label>
-    <input type="text" name="peso" class="form-control">
+    {!!Form::label('Peso:')!!}
+    {!!Form::text('peso',null,['class'=>'form-control', 'placeholder'=>'Ingrese el peso'])!!}
 </div>
 <div class="form-group">
     <label for="sexo">
