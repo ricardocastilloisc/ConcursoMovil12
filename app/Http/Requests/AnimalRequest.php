@@ -26,11 +26,9 @@ class AnimalRequest extends Request
         return [
                 'nombre' => 'required',
                 'arete' => 'required|unique:animales',
-                'raza'=> 'required',
                 'fecha_de_compra'=> 'required',
                 'fecha_de_nacimiento'=> 'required',
                 'peso'=> 'required',
-                'sexo'=> 'required',
             //
         ];
 

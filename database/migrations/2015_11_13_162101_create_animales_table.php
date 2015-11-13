@@ -23,6 +23,10 @@ class CreateAnimalesTable extends Migration
                                 ->onDelete('cascade')
                                 ->onUpdate('cascade');
             $table->date('fecha_de_compra');
+
+
+            $table->integer('parir_id');
+            $table->integer('preniada_id');
             $table->date('fecha_de_nacimiento');
             $table->string('peso',255);
             $table->integer('sexo');

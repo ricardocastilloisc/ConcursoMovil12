@@ -41,7 +41,9 @@ class AnimalesController extends Controller
      */
     public function create()
     {
-        return view('animales.create');
+        $razas = Razas::lists('nombre', 'id');
+        return view('animales.create', compact('razas'));
+       
         //
     }
 
