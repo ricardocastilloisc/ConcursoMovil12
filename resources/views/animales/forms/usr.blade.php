@@ -17,7 +17,7 @@
 <div class="form-group">
   <label for="sexo"> Select:</label>
   <select name="sexo" class="form-control">
-    <option value="1">Hembra</option>
-    <option value="0">Macho</option>
+    <option value="Hembra">Hembra</option>
+    <option value="Macho">Macho</option>
   </select>
 </div>

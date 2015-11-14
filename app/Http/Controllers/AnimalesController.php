@@ -57,7 +57,7 @@ class AnimalesController extends Controller
     {
         Animales::create($request->all());
         //esta parte es para mandar un mensaje con una variable
-        return Redirect::to('/animales');
+        return Redirect::to('/animal/show');
         //
     }
 
@@ -70,16 +70,15 @@ class AnimalesController extends Controller
     public function show(Request $request)
     {
 
-        $animales = Animales::paginate(1); 
-     
+        $animales = Animales::Animaless();
+
+        $razas = Razas::lists('nombre', 'id'); 
         if($request->ajax())
         {
-            return response()->json(view('animales.razas', compact('animales'))->render());
+            return response()->json(view('animales.users', compact('animales','razas'))->render());
         }
-        //enviamos la variable osea todos los datos se van a la vista
-    
 
-        return view('animales.show',compact('animales'));
+        return view('animales.show',compact('animales','razas'));
         //
     }
 

@@ -1,8 +1,9 @@
 <?php
 
 namespace ConcursoMovil12;
-
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
+use DB;
 
 class Animales extends Model
 {
@@ -19,4 +20,14 @@ class Animales extends Model
 		'peso',
 		'sexo'
 		];
+
+	public static function Animaless()
+	{
+		return DB::table('animales')
+			->join('razas','razas.id','=','animales.raza_id')
+			->select('animales.*','razas.nombre as raza')
+			->orderBy('animales.nombre','ASC')
+			->paginate(1);
+
+	}
 }

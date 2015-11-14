@@ -1,6 +1,3 @@
-@extends('template.template')
-@include('alerts.success')
-@section('content')
 <div class="animales">
   <div class="row"> @foreach($animales as $animal)
     <div class="col-md-6"> 
@@ -65,10 +62,4 @@
     </div>
     @endforeach 
     </div>
-  {!!$animales->render()!!} </div>
-@endsection
-
-
-@section('scripts')
-		{!!Html::script('js/script2.js')!!}
-@endsection 
+  {!!$animales->render()!!}

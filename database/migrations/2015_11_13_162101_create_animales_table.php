@@ -29,7 +29,7 @@ class CreateAnimalesTable extends Migration
             $table->integer('preniada_id');
             $table->date('fecha_de_nacimiento');
             $table->string('peso',255);
-            $table->integer('sexo');
+            $table->string('sexo',10);
             $table->timestamps();
         });
     }
