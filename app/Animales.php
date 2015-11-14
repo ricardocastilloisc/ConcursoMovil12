@@ -16,12 +16,11 @@ class Animales extends Model
 		'nombre',
 		'arete',
 		'raza_id',
-		'parir_id',
-		'preniada_id',
 		'fecha_de_compra',
 		'fecha_de_nacimiento',
 		'peso',
-		'sexo'
+		'sexo',
+		'arete_madre',
 		];
 //esta funcion es personalizada 
 //osea laravel no 

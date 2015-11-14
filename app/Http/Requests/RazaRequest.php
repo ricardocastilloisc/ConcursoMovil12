@@ -29,7 +29,6 @@ class RazaRequest extends Request
         //reglas que queremos 
         return [
                 'nombre' => 'required|unique:razas',
-                'minutos_de_produccion_de_leche' => 'required',
                 'dias_de_celo'=> 'required',
                 'semanas_de_gestacion'=> 'required',
         ];

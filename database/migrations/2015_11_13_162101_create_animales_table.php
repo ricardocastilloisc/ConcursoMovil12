@@ -24,10 +24,9 @@ class CreateAnimalesTable extends Migration
                                 ->onDelete('cascade') // que se pueda eleminar osea trigger
                                 ->onUpdate('cascade'); //y se pueda actualizar
             $table->date('fecha_de_compra');
-            $table->integer('parir_id');
-            $table->integer('preniada_id');
+            $table->string('arete_madre',255);
             $table->date('fecha_de_nacimiento');
-            $table->string('peso',255);
+            $table->decimal('peso',11,3);
             $table->string('sexo',10);
             $table->timestamps();
         });

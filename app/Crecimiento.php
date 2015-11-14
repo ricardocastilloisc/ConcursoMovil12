@@ -4,7 +4,7 @@ namespace ConcursoMovil12;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Carnes extends Model
+class Crecimiento extends Model
 {
     //
 }

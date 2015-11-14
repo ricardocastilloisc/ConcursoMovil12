@@ -17,3 +17,6 @@ Route::get('/', [
 Route::resource('animal','AnimalesController');
 //accedemos al controlador raza nombranndolo con el mismo nombre
 Route::resource('raza','RazaController');
+
+//accedemos al controlador de crecmimiento
+Route::resource('crecmimiento','CrecimientoController');

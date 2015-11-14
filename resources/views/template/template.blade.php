@@ -49,6 +49,7 @@ la finalidad de no saturar de tantos temas la vista principal-->
             <li><a href="table.html">Nacimientos</a></li>
             <li><a href="forms.html">Periodos de crecimiento</a></li>
             <li><a href="login.html">Destete</a></li>
+            <li><a href="login.html">Aprovechamiento de Carne</a></li>
             <li><a href="login.html">Email: Usuario</a></li>
           </ul>
           </li>

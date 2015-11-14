@@ -27,7 +27,6 @@ class RazaUpdateRequest extends Request
         //sea obligatorio
         return [
                 'nombre' => 'required',
-                'minutos_de_produccion_de_leche' => 'required',
                 'dias_de_celo'=> 'required',
                 'semanas_de_gestacion'=> 'required',
             //

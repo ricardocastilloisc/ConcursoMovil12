@@ -1,5 +1,8 @@
 <!--incluimos el tema principal-->
 @extends('template.template')
+@section('css')
+{!!Html::style('css/calculador.css')!!}
+@endsection 
 
 	@section('content')
 		@include('alerts.request')
@@ -19,3 +22,8 @@ y accedemos al metodo uodate que esta en controlador animal-->
               </tr>
 </table>
 @endsection
+<!--se pone por la calculadora-->
+@section('scripts')
+    {!!Html::script('js/jquery-1.9.1.min.js')!!}
+    {!!Html::script('js/cal.js')!!}
+@endsection 

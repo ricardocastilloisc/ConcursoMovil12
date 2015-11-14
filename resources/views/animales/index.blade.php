@@ -34,17 +34,21 @@
                   <td>{{$animal->arete}}</td>
                 </tr>
                 <tr>
+
+
                   <th>Animal:</th>
                 </tr>
                 <tr>
                   <td>{{$animal->raza}}</td>
                 </tr>
+                @if($animal->fecha_de_compra!='0000-00-00')
                 <tr>
                   <th>Fecha de Compra:</th>
                 </tr>
                 <tr>
                   <td>{{$animal->fecha_de_compra}}</td>
                 </tr>
+                @endif
                 <tr>
                   <th>Fecha de Nacimiento:</th>
                 </tr>
@@ -52,10 +56,16 @@
                   <td>{{$animal->fecha_de_nacimiento}}</td>
                 </tr>
                 <tr>
+                  <th>Arete Madre:</th>
+                </tr>
+                <tr>
+                  <td>{{$animal->arete_madre}}</td>
+                </tr>
+                <tr>
                   <th>Peso:</th>
                 </tr>
                 <tr>
-                  <td>{{$animal->peso}}</td>
+                  <td>{{$animal->peso}} kg</td>
                 </tr>
                 <tr>
                   <th>Sexo:</th>
