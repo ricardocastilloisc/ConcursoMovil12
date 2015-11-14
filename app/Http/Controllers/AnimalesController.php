@@ -109,7 +109,7 @@ class AnimalesController extends Controller
         $this->animales->fill($request->all());
         $this->animales->save();
 
-        Session::flash('message','Animal Editada Correctamente');
+        Session::flash('message','Animal Editado Correctamente');
         return Redirect::to('/animal');
         //
     }

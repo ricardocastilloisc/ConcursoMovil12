@@ -27,13 +27,13 @@
                   <th>Aproximación cuando tiene en celo:</th>
                 </tr>
                 <tr>
-                  <td>{{$raza->meses_de_celo}} meses</td>
+                  <td>{{$raza->dias_de_celo}} días</td>
                 </tr>
                 <tr>
-                  <th>Cuanto tiempo tarda la gestación:</th>
+                  <th>Cuanto tiempo tarda la gestación o eclosión:</th>
                 </tr>
                 <tr>
-                  <td>{{$raza->meses_de_gestacion}} meses</td>
+                  <td>{{$raza->semanas_de_gestacion}} semanas</td>
                 </tr>
                 <tr>
                   <td> {!!link_to_route('raza.edit', $title='Editar', $parameters=$raza->id, $attributes=['class'=>'btn btn-primary'])!!} </td>

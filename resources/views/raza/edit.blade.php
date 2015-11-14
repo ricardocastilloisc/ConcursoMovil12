@@ -1,6 +1,14 @@
 @extends('template.template')
-	@section('content')
-		@include('alerts.request')
+@section('css')
+
+{!!Html::style('css/calculador.css')!!}
+
+@endsection 
+@section('content')
+@include('alerts.request')
+
+
+@include('raza.forms.calculadora')
 		
 		{!!Form::model($raza,['route'=> ['raza.update',$raza->id],'method'=>'PUT'])!!}
 			@include('raza.forms.usr')
@@ -14,3 +22,8 @@
           </tr>
 </table>
 @endsection
+
+@section('scripts')
+    {!!Html::script('js/jquery-1.9.1.min.js')!!}
+    {!!Html::script('js/cal.js')!!}
+@endsection 

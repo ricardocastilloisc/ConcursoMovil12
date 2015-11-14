@@ -16,8 +16,8 @@ class CreateRazasTable extends Migration
             $table->increments('id');
             $table->string('nombre', 255);
             $table->integer('minutos_de_produccion_de_leche');
-            $table->integer('meses_de_celo');
-            $table->integer('meses_de_gestacion');
+            $table->integer('dias_de_celo');
+            $table->integer('semanas_de_gestacion');
             $table->timestamps();
         });
     }

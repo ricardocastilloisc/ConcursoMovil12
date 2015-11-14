@@ -26,8 +26,8 @@ class RazaUpdateRequest extends Request
         return [
                 'nombre' => 'required',
                 'minutos_de_produccion_de_leche' => 'required',
-                'meses_de_celo'=> 'required',
-                'meses_de_gestacion'=> 'required',
+                'dias_de_celo'=> 'required',
+                'semanas_de_gestacion'=> 'required',
             //
         ];
     }

@@ -14,8 +14,8 @@ class Razas extends Model
 	protected $fillable = [
 		'nombre',
 		'minutos_de_produccion_de_leche',
-		'meses_de_celo',
-		'meses_de_gestacion'
+		'dias_de_celo',
+		'semanas_de_gestacion'
 		];
 
     //

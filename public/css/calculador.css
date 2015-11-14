@@ -1,0 +1,33 @@
+#calculadora tr td
+{
+
+padding: 15px;
+border: 1px solid #000000;
+font-family: trebuchet, verdana, arial;
+color: #000000;
+background: #FFFFFF;
+font-size: 18px;
+}
+
+#calculadora tr td:hover{
+color: #FFFFFF;
+background: #000000;
+cursor: pointer;
+}
+
+#resultado_calculadora{
+font-family: trebuchet, verdana, arial;
+font-weight: bold;
+}
+
+
+.no-style
+{
+background: #FFFFFF;
+border: 0;
+}
+.no-style:hover
+{
+background: #FFFFFF;
+border: 0;
+}

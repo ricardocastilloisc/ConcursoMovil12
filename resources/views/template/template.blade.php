@@ -15,6 +15,10 @@
 <!-- CUSTOM STYLE  -->
 <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 
+
+@section('css')
+     @show
+
 <!-- BOOTSTRAP CORE STYLE  -->
 </head>
 <body>
