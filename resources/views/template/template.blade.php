@@ -14,9 +14,11 @@
 <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet" />
 <!-- CUSTOM STYLE  -->
 <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
-
+<!--La seccion  de lo temos aperye de lo que no estan en el tema pricipl con 
+la finalidad de no saturar de tantos temas la vista principal-->
 
 @section('css')
+
      @show
 
 <!-- BOOTSTRAP CORE STYLE  -->
@@ -60,7 +62,7 @@
 
 <!-- MENU SECTION END-->
 <div class="content-wrapper">
-  <div class="container"> @yield('content') </div>
+  <div class="container"> <!--esta seccion podemos poner lo que necesitamos en el contenido y poder reciclar lo que necesitamos -->@yield('content') </div>
 </div>
 <!-- CONTENT-WRAPPER SECTION END-->
 <footer>
@@ -77,6 +79,8 @@
 <script src="{{ asset('js/jquery-1.11.1.js') }}"></script> 
 <!-- BOOTSTRAP SCRIPTS  --> 
 <script src="{{ asset('js/bootstrap.js') }}"></script> 
+<!--los js que no temos y podemos accesar 
+el cuales no saturen al tema principal-->
 @section('scripts')
      @show
 </body>
