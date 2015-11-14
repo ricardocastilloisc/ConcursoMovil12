@@ -6,7 +6,7 @@
     <h4 class="page-head-line">Menu</h4>
   </div>
 </div>
-<div class="row"> <a href="{!!URL::to('/animal')!!}">
+<div class="row"> <a href="{!!URL::to('/animal/show')!!}">
   <div class="col-md-3 col-sm-3 col-xs-6">
     <div class="dashboard-div-wrapper bk-clr-one"> <i  class="fa fa-book dashboard-div-icon" ></i>
       <div class="progress progress-striped active">

@@ -67,8 +67,19 @@ class AnimalesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
+
+        $animales = Animales::paginate(1); 
+     
+        if($request->ajax())
+        {
+            return response()->json(view('animales.razas', compact('animales'))->render());
+        }
+        //enviamos la variable osea todos los datos se van a la vista
+    
+
+        return view('animales.show',compact('animales'));
         //
     }
 
