@@ -9,8 +9,9 @@ use DB;
 class Razas extends Model
 {
 
+//buscamos la tabla
 	protected $table = "razas";
-
+//filtramos lo que queremos
 	protected $fillable = [
 		'nombre',
 		'minutos_de_produccion_de_leche',

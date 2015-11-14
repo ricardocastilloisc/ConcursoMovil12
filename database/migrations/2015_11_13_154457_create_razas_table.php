@@ -12,6 +12,7 @@ class CreateRazasTable extends Migration
      */
     public function up()
     {
+           //creamos la tabla y especificamos los campos como los queremos 
         Schema::create('razas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre', 255);

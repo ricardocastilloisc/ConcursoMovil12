@@ -1,6 +1,12 @@
+<!--visualizamos todo lo que necesitamos -->
 @extends('template.template')
 @section('content')
 @include('alerts.success')
+<div class="row">
+  <div class="col-md-12">
+    <h4 class="page-head-line">Animales</h4>
+  </div>
+</div>
 <div class="animales">
   <div class="row"> @foreach($animales as $animal)
     <div class="col-md-6"> 
@@ -15,6 +21,8 @@
                   <th>Nombre:</th>
                 </tr>
                 <tr>
+                <!--sin tener que explicar mucho solo 
+                accedemos a los valores de la variable-->
                   <td>{{$animal->nombre}}</td>
                 </tr>
                 <tr>

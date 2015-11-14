@@ -16,6 +16,7 @@ class FrontController extends Controller
      */
     public function index()
     {
+        //solo redireccionamos a la pagina principal
       return view('index');
         //
     }

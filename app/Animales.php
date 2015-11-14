@@ -7,9 +7,11 @@ use DB;
 
 class Animales extends Model
 {
-
+//accedos a la tabla en especifico 
 	protected $table = "animales";
-
+//buscamos lo valores que 
+//vamos a buscar 
+//como a modificar 
 	protected $fillable = [
 		'nombre',
 		'arete',
@@ -21,7 +23,11 @@ class Animales extends Model
 		'peso',
 		'sexo'
 		];
-
+//esta funcion es personalizada 
+//osea laravel no 
+//tiene en sus 
+//metodos predeterminados
+//haciendolo con una tabla relacionada
 	public static function Animaless()
 	{
 		return DB::table('animales')

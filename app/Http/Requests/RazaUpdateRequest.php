@@ -23,6 +23,8 @@ class RazaUpdateRequest extends Request
      */
     public function rules()
     {
+        //como queremos que 
+        //sea obligatorio
         return [
                 'nombre' => 'required',
                 'minutos_de_produccion_de_leche' => 'required',

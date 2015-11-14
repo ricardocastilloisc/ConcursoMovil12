@@ -13,6 +13,7 @@ class AnimalUpdateRequest extends Request
      */
     public function authorize()
     {
+        //autorizamos 
         return true;
     }
 
@@ -23,6 +24,9 @@ class AnimalUpdateRequest extends Request
      */
     public function rules()
     {
+        //igual los parametros que quermos que sean 
+        //necesario al momento de
+        //guardar
         return [
                 'nombre' => 'required',
                 'arete' => 'required',

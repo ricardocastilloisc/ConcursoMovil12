@@ -1,18 +1,13 @@
 <?php
 
 namespace ConcursoMovil12\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use ConcursoMovil12\Http\Requests;
 use ConcursoMovil12\Http\Controllers\Controller;
-
 use Illuminate\Routing\Route;
 use Session;
 use Redirect;
 use ConcursoMovil12\Razas;
-
-
 use ConcursoMovil12\Http\Requests\RazaRequest;
 use ConcursoMovil12\Http\Requests\RazaUpdateRequest;
 
@@ -68,9 +63,15 @@ class RazaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //el request es para validar los datos 
     public function store(RazaRequest $request)
     {
+        //accedemos a todo 
+        //los datos para poder 
+        //mandarlos a ala vista 
         Razas::create($request->all());
+        //mensaje para poder determinar 
+        //si fue creada la raza
         Session::flash('message','Raza Creada Correctamente');
         //esta parte es para mandar un mensaje con una variable
         return Redirect::to('/raza');
@@ -96,6 +97,8 @@ class RazaController extends Controller
      */
     public function edit($id)
     {
+        //redireccionamiento con los datos de
+        //la raza
         return view('raza.edit',['raza'=>$this->raza]);
         //
     }
@@ -109,9 +112,13 @@ class RazaController extends Controller
      */
     public function update(RazaUpdateRequest $request, $id)
     {
+        ///en la optimizacion que declaramos en el 
+        ///contructor
+        ///accedemos a todos los datos 
         $this->raza->fill($request->all());
+        //guardamos los cambios
         $this->raza->save();
-
+        //damos un mensaje mensaje que efectivamente fueron guardados
         Session::flash('message','Raza Editada Correctamente');
         return Redirect::to('/raza');
         //
@@ -125,7 +132,9 @@ class RazaController extends Controller
      */
     public function destroy($id)
     {
+        //eliminamos la raza
         $this->raza->delete();
+        //damos un mensaje
         Session::flash('message','Raza Eliminada Correctamente');
         return Redirect::to('/raza');
         //

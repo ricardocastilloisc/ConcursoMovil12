@@ -1,8 +1,15 @@
 @extends('template.template')
 @section('content')
 @include('alerts.success')
+<div class="row">
+  <div class="col-md-12">
+    <h4 class="page-head-line">Razas</h4>
+  </div>
+</div>
 <div class="razas">
-  <div class="row"> @foreach($razas as $raza)
+  <div class="row">
+  <!--para poder acceder a la varable como un arreglo-->
+   @foreach($razas as $raza)
     <div class="col-md-6"> 
       <!--   Kitchen Sink -->
       <div class="panel panel-default">
@@ -46,6 +53,7 @@
       <!-- End  Kitchen Sink --> 
     </div>
     @endforeach </div>
+    <!--es importante para poder conpaginar -->
   {!!$razas->render()!!} </div>
 @endsection
 

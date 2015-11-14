@@ -1,7 +1,5 @@
 <?php
-
 namespace ConcursoMovil12\Http\Requests;
-
 use ConcursoMovil12\Http\Requests\Request;
 
 class AnimalRequest extends Request
@@ -13,6 +11,7 @@ class AnimalRequest extends Request
      */
     public function authorize()
     {
+        //poder hacer efectivo la autorización cuando se ejecute el programa
         return true;
     }
 
@@ -21,6 +20,12 @@ class AnimalRequest extends Request
      *
      * @return array
      */
+    //en request visualizamos que queremos que 
+    //se guarde y como lo queremos que se guarde
+    //casi todos los campos son requeridos 
+    //pero hay uno en especial donde decimos 
+    //que no pueda haber repetidos 
+    //y se pone unique
     public function rules()
     {
         return [

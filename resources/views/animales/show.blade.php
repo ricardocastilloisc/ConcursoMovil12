@@ -1,11 +1,15 @@
 @extends('template.template')
 
 @section('content')
+<!--menu principal-->
 <div class="row">
   <div class="col-md-12">
     <h4 class="page-head-line">Menu</h4>
   </div>
 </div>
+<!--para poder diregirte de una pagina a otra
+sin mucho desperdicio de codigo 
+laravel ofrece la manera de poder acceder con url-->
 <div class="row"> <a href="{!!URL::to('/animal')!!}">
   <div class="col-md-3 col-sm-3 col-xs-6">
     <div class="dashboard-div-wrapper bk-clr-one"> <i  class="fa fa-book dashboard-div-icon" ></i>

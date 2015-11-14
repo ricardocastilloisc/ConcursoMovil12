@@ -1,4 +1,10 @@
 <div class="animales">
+<!--visualizamos lo que queremos 
+con las variables se 
+hace otra vista porque 
+ajax o laravel nos pide que declaresmoa tal cual
+lo que quermos 
+visualizar en la paginacion-->
 <div class="row"> @foreach($animales as $animal)
   <div class="col-md-6"> 
     <!--   Kitchen Sink -->

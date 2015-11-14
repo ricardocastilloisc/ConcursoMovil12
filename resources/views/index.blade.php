@@ -1,5 +1,5 @@
 @extends('template.template')
-
+<!-- vista principal de la pagina de usuaurio para poder acceder -->
 @section('content')
 <div class="content-wrapper">
   <div class="container">

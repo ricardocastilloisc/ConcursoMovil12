@@ -13,6 +13,7 @@ class RazaRequest extends Request
      */
     public function authorize()
     {
+        //autorizamos
         return true;
     }
 
@@ -23,6 +24,9 @@ class RazaRequest extends Request
      */
     public function rules()
     {
+        //decimos que queremo 
+        //y como lo queremos que sea necesario osea las 
+        //reglas que queremos 
         return [
                 'nombre' => 'required|unique:razas',
                 'minutos_de_produccion_de_leche' => 'required',
