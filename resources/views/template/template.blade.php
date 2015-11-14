@@ -56,17 +56,14 @@
 
 <!-- MENU SECTION END-->
 <div class="content-wrapper">
-        <div class="container">
-       
   <div class="container"> @yield('content') </div>
-
-</div>
 </div>
 <!-- CONTENT-WRAPPER SECTION END-->
 <footer>
   <div class="container">
     <div class="row">
       <div class="col-md-12"> &copy; Castillo Olivera Ricardo Orlando</div>
+      <div class="col-md-12"> &copy; Novelo Sansores Alan Ernesto</div>
     </div>
   </div>
 </footer>
@@ -75,9 +72,8 @@
 <!-- CORE JQUERY SCRIPTS --> 
 <script src="{{ asset('js/jquery-1.11.1.js') }}"></script> 
 <!-- BOOTSTRAP SCRIPTS  --> 
-<script src="{{ asset('js/bootstrap.js') }}"></script>
-
-     @section('scripts')
+<script src="{{ asset('js/bootstrap.js') }}"></script> 
+@section('scripts')
      @show
 </body>
 </html>

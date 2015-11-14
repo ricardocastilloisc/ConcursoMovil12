@@ -5,5 +5,4 @@
 		@include('animales.forms.usr')
 		{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
 	{!!Form::close()!!}
-@stop
- 
+@stop 
