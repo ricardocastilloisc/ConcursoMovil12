@@ -1,6 +1,6 @@
 @extends('template.template')
-@include('alerts.success')
 @section('content')
+@include('alerts.success')
 <div class="animales">
   <div class="row"> @foreach($animales as $animal)
     <div class="col-md-6"> 
@@ -12,7 +12,7 @@
             <table class="table table-striped table-bordered table-hover">
               <tbody>
                 <tr>
-                <th>Nombre:</th>
+                  <th>Nombre:</th>
                 </tr>
                 <tr>
                   <td>{{$animal->nombre}}</td>
@@ -63,8 +63,7 @@
       </div>
       <!-- End  Kitchen Sink --> 
     </div>
-    @endforeach 
-    </div>
+    @endforeach </div>
   {!!$animales->render()!!} </div>
 @endsection
 

@@ -8,6 +8,7 @@ use Session;
 use Redirect;
 use ConcursoMovil12\Animales;
 use ConcursoMovil12\Http\Requests\AnimalRequest;
+use ConcursoMovil12\Http\Requests\AnimalUpdateRequest;
 
 use ConcursoMovil12\Http\Requests;
 use ConcursoMovil12\Http\Controllers\Controller;
@@ -90,6 +91,8 @@ class AnimalesController extends Controller
      */
     public function edit($id)
     {
+        $razas = Razas::lists('nombre', 'id');
+        return view('animales.edit',['animales'=>$this->animales,'razas'=>$razas]);
         //
     }
 
@@ -100,8 +103,14 @@ class AnimalesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AnimalUpdateRequest $request, $id)
     {
+
+        $this->animales->fill($request->all());
+        $this->animales->save();
+
+        Session::flash('message','Animal Editada Correctamente');
+        return Redirect::to('/animal');
         //
     }
 
@@ -113,7 +122,9 @@ class AnimalesController extends Controller
      */
     public function destroy($id)
     {
-
+        $this->animales->delete();
+        Session::flash('message','Animal Eliminada Correctamente');
+        return Redirect::to('/animal');
         //
     }
 }

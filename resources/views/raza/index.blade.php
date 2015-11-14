@@ -1,6 +1,6 @@
 @extends('template.template')
-@include('alerts.success')
 @section('content')
+@include('alerts.success')
 <div class="razas">
   <div class="row"> @foreach($razas as $raza)
     <div class="col-md-6"> 

@@ -20,27 +20,20 @@
 <body>
 
 <!-- HEADER END-->
-<header>
-  
-</header><!-- /header -->
+<header> </header>
+<!-- /header -->
 <div class="navbar navbar-inverse set-radius-zero">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       <a class="navbar-brand" href="{{ route('home') }}"> <img src="{{ asset('img/logo.png') }}" /> </a> </div>
-     
   </div>
 </div>
-
 <hr>
-
-
-     
 
 <!-- LOGO HEADER END-->
 
 <section class="menu-section">
-              
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -50,16 +43,15 @@
             <li><a href="table.html">Nacimientos</a></li>
             <li><a href="forms.html">Periodos de crecimiento</a></li>
             <li><a href="login.html">Destete</a></li>
-             <li><a href="login.html">Email: Usuario</a></li>
-            </ul>
-            </li>
-            </li>
+            <li><a href="login.html">Email: Usuario</a></li>
+          </ul>
+          </li>
+          </li>
           </ul>
         </div>
       </div>
     </div>
   </div>
- 
 </section>
 
 <!-- MENU SECTION END-->
