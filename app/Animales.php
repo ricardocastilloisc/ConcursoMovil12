@@ -16,6 +16,7 @@ class Animales extends Model
 		'raza_id',
 		'parir_id',
 		'preniada_id',
+		'fecha_de_compra',
 		'fecha_de_nacimiento',
 		'peso',
 		'sexo'
@@ -27,7 +28,7 @@ class Animales extends Model
 			->join('razas','razas.id','=','animales.raza_id')
 			->select('animales.*','razas.nombre as raza')
 			->orderBy('animales.nombre','ASC')
-			->paginate(1);
+			->paginate(4);
 
 	}
 }

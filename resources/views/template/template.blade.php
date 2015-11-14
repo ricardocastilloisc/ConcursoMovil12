@@ -18,40 +18,48 @@
 <!-- BOOTSTRAP CORE STYLE  -->
 </head>
 <body>
-<header>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12"> <strong>Email: </strong>NOMBRE DEL USUARIO REGISTRADO&nbsp;&nbsp;</div>
-    </div>
-  </div>
-</header>
+
 <!-- HEADER END-->
+<header>
+  
+</header><!-- /header -->
 <div class="navbar navbar-inverse set-radius-zero">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
       <a class="navbar-brand" href="{{ route('home') }}"> <img src="{{ asset('img/logo.png') }}" /> </a> </div>
+     
   </div>
 </div>
-<br>
+
 <hr>
+
+
+     
+
 <!-- LOGO HEADER END-->
+
 <section class="menu-section">
+              
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="navbar-collapse collapse ">
           <ul id="menu-top" class="nav navbar-nav navbar-right">
-            <li><a href="{{ route('animales') }}">Animales</a></li>
+            <li><a href="{!!URL::to('/animal/show')!!}">Animales</a></li>
             <li><a href="table.html">Nacimientos</a></li>
             <li><a href="forms.html">Periodos de crecimiento</a></li>
             <li><a href="login.html">Destete</a></li>
-            <li><a href="blank.html">Carnes</a></li>
+             <li><a href="login.html">Email: Usuario</a></li>
+            </ul>
+            </li>
+            </li>
           </ul>
         </div>
       </div>
     </div>
   </div>
+ 
 </section>
 
 <!-- MENU SECTION END-->

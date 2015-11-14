@@ -9,11 +9,7 @@ Route::get('/', [
 
 
 
-Route::get('animales', [
-	'as' => 'animales',
-	'uses'=>'AnimalesController@index'
 
-	]);
 
 Route::resource('animal','AnimalesController');
 Route::resource('raza','RazaController');

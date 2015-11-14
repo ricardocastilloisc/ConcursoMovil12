@@ -28,9 +28,17 @@ class AnimalesController extends Controller
     {
         $this->animales = Animales::find($route->getParameter('animal')); 
     }
-    public function index()
+    public function index(Request $request)
     {
-        return view('animales.index');
+        $animales = Animales::Animaless();
+
+        $razas = Razas::lists('nombre', 'id'); 
+        if($request->ajax())
+        {
+            return response()->json(view('animales.index', compact('animales','razas'))->render());
+        }
+        return view('animales.index',compact('animales','razas'));
+        //
         //
     }
 
@@ -57,7 +65,7 @@ class AnimalesController extends Controller
     {
         Animales::create($request->all());
         //esta parte es para mandar un mensaje con una variable
-        return Redirect::to('/animal/show');
+        return Redirect::to('/animal');
         //
     }
 
@@ -67,19 +75,11 @@ class AnimalesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show()
     {
+         return view('animales.show');
 
-        $animales = Animales::Animaless();
-
-        $razas = Razas::lists('nombre', 'id'); 
-        if($request->ajax())
-        {
-            return response()->json(view('animales.users', compact('animales','razas'))->render());
-        }
-
-        return view('animales.show',compact('animales','razas'));
-        //
+       
     }
 
     /**
@@ -113,6 +113,7 @@ class AnimalesController extends Controller
      */
     public function destroy($id)
     {
+
         //
     }
 }
