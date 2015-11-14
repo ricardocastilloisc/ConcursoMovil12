@@ -125,6 +125,9 @@ class RazaController extends Controller
      */
     public function destroy($id)
     {
+        $this->raza->delete();
+        Session::flash('message','Raza Eliminada Correctamente');
+        return Redirect::to('/raza');
         //
     }
 }
