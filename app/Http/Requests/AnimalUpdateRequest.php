@@ -26,8 +26,6 @@ class AnimalUpdateRequest extends Request
         return [
                 'nombre' => 'required',
                 'arete' => 'required',
-                'fecha_de_compra'=> 'required',
-                'fecha_de_nacimiento'=> 'required',
                 'peso'=> 'required',
             //
         ];
