@@ -30,19 +30,37 @@ class RazaController extends Controller
         //funcion para buscar
         $this->raza = Razas::find($route->getParameter('raza')); 
     }
+
     public function index(Request $request)
     {
-        //busco los datos de las razas y se compagina
-        $razas = Razas::paginate(4); 
-        //si se ejecuto el ajax vuelve hacer la insturccion
-        if($request->ajax())
+        //si no hay metodo de busqueda entonces has el codigo normalmente 
+        if($request->get('nombre') =='')
         {
-            return response()->json(view('raza.razas', compact('razas'))->render());
-        }
-        //enviamos la variable osea todos los datos se van a la vista
-        return view('raza.index',compact('razas'));
+         //busco los datos de las razas y se compagina
+            $razas = Razas::paginate(4); 
+            //si se ejecuto el ajax vuelve hacer la insturccion
+            if($request->ajax())
+            {
+                return response()->json(view('raza.razas', compact('razas'))->render());
+            }
+            //enviamos la variable osea todos los datos se van a la vista
+            return view('raza.index',compact('razas'));
+        }//si hay metodo de busqueda has la consulta personalizada
+        else 
+        {
+            if($request->get('nombre') != '')
+            {
+                 //se va ejecutar la funcion scope porque 
+                //no hay funcion relevante y se ejecuta por si 
+                //solo hay que aclarar que 
+                //nombre 
+                //es como se va llamar el spoce
+                //es niestro metodo de busqueda predeterminado
+                $razas = Razas::nombre($request->get('nombre'))->orderBy('nombre','ASC')->paginate(4);
+                return view('raza.index',compact('razas'));
 
-        //
+            } 
+        }   //
     }
 
     /**

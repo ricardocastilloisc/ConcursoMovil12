@@ -1,11 +1,45 @@
 @extends('template.template')
 @section('content')
 @include('alerts.success')
-<div class="row">
+<div class="row margin-bottom: 0px;">
   <div class="col-md-12">
     <h4 class="page-head-line">Razas</h4>
   </div>
 </div>
+
+
+
+
+
+<!--Esta parte es para poder poner los formularios de los filtros
+en este biscaremos loo que necesitamos con un formularo
+del estilo text hacemos una tabla para poder ubicarlos -->
+
+  <div class="row margin-bottom: 0px;">
+  <div class="col-md-12">
+  <table align="left">
+      <tr>
+      <td>
+            {!!Form::open(['route'=>'raza.index','method'=>'GET', 'class'=>'navbar-form navbar-left','role'=>'search'])!!}
+          <div class="form-group">
+            {!!Form::text('nombre', null,['class'=>'form-control', 'placeholder'=>'Buscar por nombre'])!!}
+            </div>
+          </div>
+          <td>
+          <button type="submit" class="btn btn-default">Buscar</button>
+        {!!Form::close()!!}
+        </td>
+        </tr>
+        </table>
+  </div>
+</div>
+
+
+
+
+
+
+
 <div class="razas">
   <div class="row">
   <!--para poder acceder a la varable como un arreglo-->

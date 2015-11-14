@@ -19,5 +19,13 @@ class Razas extends Model
 		'semanas_de_gestacion'
 		];
 
+	public function scopeNOMBRE($query, $nombre)
+    {
+    	if(trim($nombre) != "")
+    	{
+    		$query->select('razas.*')->where('nombre',"LIKE","%$nombre%");
+    	}
+    	
+    }
     //
 }
