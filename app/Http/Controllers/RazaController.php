@@ -14,6 +14,7 @@ use ConcursoMovil12\Razas;
 
 
 use ConcursoMovil12\Http\Requests\RazaRequest;
+use ConcursoMovil12\Http\Requests\RazaUpdateRequest;
 
 class RazaController extends Controller
 {
@@ -70,6 +71,7 @@ class RazaController extends Controller
     public function store(RazaRequest $request)
     {
         Razas::create($request->all());
+        Session::flash('message','Raza Creada Correctamente');
         //esta parte es para mandar un mensaje con una variable
         return Redirect::to('/raza');
         //
@@ -105,8 +107,13 @@ class RazaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RazaUpdateRequest $request, $id)
     {
+        $this->raza->fill($request->all());
+        $this->raza->save();
+
+        Session::flash('message','Raza Editada Correctamente');
+        return Redirect::to('/raza');
         //
     }
 
