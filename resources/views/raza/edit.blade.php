@@ -24,6 +24,5 @@
 @endsection
 
 @section('scripts')
-    {!!Html::script('js/jquery-1.9.1.min.js')!!}
     {!!Html::script('js/cal.js')!!}
 @endsection 

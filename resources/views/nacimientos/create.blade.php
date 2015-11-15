@@ -21,9 +21,9 @@ y esto aclara
 que para guardar todo 
 como nuevo accedemos al 
 metodo store y para poder ejecutarlo con eficiencia -->
-	{!!Form::open(['route'=>'animal.store', 'method'=>'POST'])!!}
+	{!!Form::open(['route'=>'nacimiento.store', 'method'=>'POST'])!!}
 	<!--incluimos el formlario osea estamos reciclando el odigo-->
-		@include('animales.forms.usr')
+		@include('nacimientos.forms.usr')
 		{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
 		<!--Cerramos el formulario-->
 	{!!Form::close()!!}

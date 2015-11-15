@@ -15,6 +15,5 @@
 <!--en el aparte de scripts necesiamos declartos los metodo que js que no temos
 sin necidad de ponerlos en el tema principal-->
 @section('scripts')
-		{!!Html::script('js/jquery-1.9.1.min.js')!!}
 		{!!Html::script('js/cal.js')!!}
 @endsection 

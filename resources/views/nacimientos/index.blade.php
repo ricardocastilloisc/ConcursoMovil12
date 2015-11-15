@@ -3,14 +3,14 @@
 @section('content')
 @include('alerts.success')
 <!--Agregamos una ventan con los diferetes metodos de busqueda-->
-@include('nacimientos.forms.busqueda')
+@include('animales.forms.busqueda')
 <div class="row">
   <div class="col-md-12">
     <h4 class="page-head-line">Animales</h4>
   </div>
 </div>
-<div class="animales">
-  <div class="row"> @foreach($animales as $animal)
+<div class="nacimientos">
+  <div class="row"> @foreach($nacimientos as $animal)
     <div class="col-md-6"> 
       <!--   Kitchen Sink -->
       <div class="panel panel-default">
@@ -94,10 +94,8 @@
       <!-- End  Kitchen Sink --> 
     </div>
     @endforeach </div>
-  {!!$animales->render()!!} </div>
+  {!!$nacimientos->render()!!} </div>
 @endsection
-
-
 @section('scripts')
-    {!!Html::script('js/script2.js')!!}
+    {!!Html::script('js/script3.js')!!}
 @endsection 

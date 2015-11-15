@@ -46,7 +46,7 @@ la finalidad de no saturar de tantos temas la vista principal-->
         <div class="navbar-collapse collapse ">
           <ul id="menu-top" class="nav navbar-nav navbar-right">
             <li><a href="{!!URL::to('/animal/show')!!}">Animales</a></li>
-            <li><a href="table.html">Nacimientos</a></li>
+            <li><a href="{!!URL::to('/nacimiento/show')!!}">Nacimientos</a></li>
             <li><a href="forms.html">Periodos de crecimiento</a></li>
             <li><a href="login.html">Destete</a></li>
             <li><a href="login.html">Aprovechamiento de Carne</a></li>

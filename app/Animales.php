@@ -34,8 +34,30 @@ class Animales extends Model
 			->select('animales.*','razas.nombre as raza')
 			->orderBy('animales.nombre','ASC')
 			->paginate(4);
-
 	}
+
+	public static function AnimalessRazas()
+	{
+		return DB::table('animales')
+			->join('razas','razas.id','=','animales.raza_id')
+			->select('razas.id','razas.nombre as raza')
+			->orderBy('animales.nombre','ASC')
+			->lists('raza', 'razas.id');
+	}
+
+	public static function AnimalessNacimiento()
+	{
+		return DB::table('animales')
+			->join('razas','razas.id','=','animales.raza_id')
+			->select('animales.*','razas.nombre as raza')
+			->orderBy('animales.nombre','ASC')
+			->where('fecha_de_nacimiento',"!=","0000-00-00")
+			->paginate(4);
+	}
+
+
+
+
 	//funcion metodo de busqueda por arete
 	//en teoria da igual si 
 	//esta en mayuscula y en minuscula 

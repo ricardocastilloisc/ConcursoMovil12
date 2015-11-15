@@ -43,26 +43,27 @@ class AnimalesController extends Controller
          if($request->get('arete') =='' 
             && $request->get('raza_id')==''
             && $request->get('fecha_de_compra')==''
-            && $request->get('fecha_de_nacimiento')==''
             && $request->get('sexo')==''
             )
          {   
+
+            //esto tambien cuenta para el modelo de las razas
+            //si queremos que se visualice en las vista 
+            $razas = Razas::lists('nombre', 'id'); 
             //necesitamos los datos 
             //de los animales solo que esto es mas personalizado 
             //ya que la manera de poder accerder a los datos 
             //tenemos que definir las tablas irelacionadas
             //que declaramos en el modelo
             $animales = Animales::Animaless();
-            //esto tambien cuenta para el modelo de las razas
-            //si queremos que se visualice en las vista 
-            $razas = Razas::lists('nombre', 'id'); 
+ 
             //para que los usuarios no tengan que teclear todo
             //la url hacemos un metodo ajasx
             if($request->ajax())
             {
                 //el cual hace las mismas funciones y hace que funcione 
                 //nuestro javascript de la carpeta public
-                return response()->json(view('animales.index', compact('animales','razas'))->render());
+                return response()->json(view('animales.animales', compact('animales'))->render());
             }
             //solo redireccionamos todo lo de la vista con 
             //los arreglos que se ponen 
@@ -93,13 +94,6 @@ class AnimalesController extends Controller
                 $animales = Animales::fecha_de_compra($request->get('fecha_de_compra'))->paginate(4);                
                 return view('animales.index',compact('animales','razas'));
              }
-             //busqueda por fecha de nacimiento 
-             if($request->get('fecha_de_nacimiento') !='')
-             {
-                $razas = Razas::lists('nombre', 'id'); 
-                $animales = Animales::fecha_de_nacimiento($request->get('fecha_de_nacimiento'))->paginate(4);                
-                return view('animales.index',compact('animales','razas'));
-             }
              //busqueda por sexo:
              if($request->get('sexo') !='')
              {
@@ -107,8 +101,6 @@ class AnimalesController extends Controller
                 $animales = Animales::sexo($request->get('sexo'))->paginate(4);                
                 return view('animales.index',compact('animales','razas'));
              }
-
-
         }
     }
 
