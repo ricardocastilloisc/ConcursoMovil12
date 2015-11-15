@@ -3,6 +3,9 @@
 namespace ConcursoMovil12;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
+use DB;
+
 
 class Crecimiento extends Model
 {
@@ -16,5 +19,4 @@ class Crecimiento extends Model
 		'peso_actual',
 		'animal_id',
 		];
-    //
 }
