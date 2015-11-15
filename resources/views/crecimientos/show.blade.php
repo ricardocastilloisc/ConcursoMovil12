@@ -9,7 +9,7 @@
 <!--para poder diregirte de una pagina a otra
 sin mucho desperdicio de codigo 
 laravel ofrece la manera de poder acceder con url-->
-<div class="row"> <a href="{!!URL::to('/animal')!!}">
+<div class="row"> <a href="{!!URL::to('/crecimiento')!!}">
   <div class="col-md-3 col-sm-3 col-xs-6">
     <div class="dashboard-div-wrapper bk-clr-one"> <i  class="fa fa-book dashboard-div-icon" ></i>
       <div class="progress progress-striped active">
@@ -18,7 +18,7 @@ laravel ofrece la manera de poder acceder con url-->
       <h5>Ver Crecimiento</h5>
     </div>
   </div>
-  </a> <a href="{!!URL::to('/animal/create')!!}">
+  </a> <a href="{!!URL::to('/crecimiento/create')!!}">
   <div class="col-md-3 col-sm-3 col-xs-6">
     <div class="dashboard-div-wrapper bk-clr-two"> <i  class="fa fa-edit dashboard-div-icon" ></i>
       <div class="progress progress-striped active">

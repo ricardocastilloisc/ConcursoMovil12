@@ -15,7 +15,7 @@ class CreateCrecimientosTable extends Migration
         Schema::create('crecimientos', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha_de_registro');
-            $table->decimal('peso_actual',5,3);
+            $table->decimal('peso_actual',11,3);
             $table->integer('animal_id')->unsigned(); //relacionar la talas 
             $table->foreign('animal_id')//hacemos la relacion
                                 ->references('id')//referenciamos la llaver primaria

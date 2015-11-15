@@ -22,4 +22,4 @@ Route::resource('raza','RazaController');
 Route::resource('nacimiento','NacimientoController');
 
 //accedemos al controlador de crecmimiento
-Route::resource('crecmimiento','CrecimientoController');
+Route::resource('crecimiento','CrecimientoController');

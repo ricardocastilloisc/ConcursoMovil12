@@ -1,7 +1,3 @@
-<!--para reclicar codigo y vistas 
-solo decimos que quermos 
-y en este caso temos un tema
-que bootstrap recomienda-->
 @extends('template.template')
 <!--se pone por la calculadora-->
 @section('css')
@@ -15,16 +11,16 @@ decidimos donde esta el conten-->
 @section('content')
 <!--incluimos las alertas-->
 @include('alerts.request')
+
 <!--Lo anteriormente mencionado recalcamos 
 que laravel tiene web service 
 y esto aclara 
 que para guardar todo 
 como nuevo accedemos al 
 metodo store y para poder ejecutarlo con eficiencia -->
-
-	{!!Form::open(['route'=>'nacimiento.store', 'method'=>'POST'])!!}
-	<!--incluimos el formlario osea estamos reciclando el odigo-->
-		@include('nacimientos.forms.usr')
+	{!!Form::open(['route'=>'crecimiento.store', 'method'=>'POST'])!!}
+		<!--incluimos el formlario osea estamos reciclando el odigo-->
+		@include('crecimientos.forms.usr')
 		{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
 		<!--Cerramos el formulario-->
 	{!!Form::close()!!}

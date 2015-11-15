@@ -6,6 +6,7 @@
 
 	@section('content')
 		@include('alerts.request')
+    
 
 <!--PARA PODER modificar los daros necesitmao sel PUt 
 y accedemos al metodo uodate que esta en controlador animal-->
