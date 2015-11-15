@@ -12,8 +12,8 @@
       <div class="col-md-6"> <strong>
         <h4>Iniciar sesión:</strong></h4>
         <br />
-        <label>Correo Ectrónico: </label>
-        <input type="email" class="form-control" />
+        <label>Usuario: </label>
+        <input type="text" class="form-control" />
         <label>Contraseña : </label>
         <input type="password" class="form-control" />
         <hr />
