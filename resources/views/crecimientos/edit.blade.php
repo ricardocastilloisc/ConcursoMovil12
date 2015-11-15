@@ -1,31 +1,32 @@
 <!--incluimos el tema principal-->
+
 @extends('template.template')
 @section('css')
 {!!Html::style('css/calculador.css')!!}
 @endsection 
 
 	@section('content')
-		@include('alerts.request')
-    
+		@include('alerts.request') 
 
 <!--PARA PODER modificar los daros necesitmao sel PUt 
-y accedemos al metodo uodate que esta en controlador animal-->
-			{!!Form::model($crecimiento,['route'=> ['crecimiento.update',$crecimiento->id],'method'=>'PUT'])!!}
+y accedemos al metodo uodate que esta en controlador animal--> 
+{!!Form::model($crecimiento,['route'=> ['crecimiento.update',$crecimiento->id],'method'=>'PUT'])!!}
 				@include('crecimientos.forms.usr')
-            <table>
+<table>
   <tr>
-                <td> {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
+    <td> {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
       {!!Form::close()!!}</td>
-      <!--Metodo delete para poder eleminar los datos -->
-                <td> {!!Form::open(['route'=> ['crecimiento.destroy',$crecimiento->id],'method'=>'DELETE'])!!}
-                <!--protegemos el filtro a la hora de eliminar-->
-                <input type="hidden" name="animal_id" value="{{ $crecimiento->animal_id }}">
+    <!--Metodo delete para poder eleminar los datos -->
+    <td> {!!Form::open(['route'=> ['crecimiento.destroy',$crecimiento->id],'method'=>'DELETE'])!!} 
+      <!--protegemos el filtro a la hora de eliminar-->
+      
+      <input type="hidden" name="animal_id" value="{{ $crecimiento->animal_id }}">
       {!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
       {!!Form::close()!!} </td>
-              </tr>
+  </tr>
 </table>
-@endsection
-<!--se pone por la calculadora-->
+@endsection 
+<!--se pone por la calculadora--> 
 @section('scripts')
     {!!Html::script('js/cal.js')!!}
 @endsection 

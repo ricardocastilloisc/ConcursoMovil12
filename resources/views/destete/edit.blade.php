@@ -1,26 +1,26 @@
 <!--incluimos el tema principal-->
+
 @extends('template.template')
 
 
 	@section('content')
-		@include('alerts.request')
-    
+		@include('alerts.request') 
 
 <!--PARA PODER modificar los daros necesitmao sel PUt 
-y accedemos al metodo uodate que esta en controlador animal-->
-			{!!Form::model($destete,['route'=> ['destete.update',$destete->id],'method'=>'PUT'])!!}
+y accedemos al metodo uodate que esta en controlador animal--> 
+{!!Form::model($destete,['route'=> ['destete.update',$destete->id],'method'=>'PUT'])!!}
 				@include('destete.forms.usr')
-            <table>
+<table>
   <tr>
-                <td> {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
+    <td> {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
       {!!Form::close()!!}</td>
-      <!--Metodo delete para poder eleminar los datos -->
-                <td> {!!Form::open(['route'=> ['destete.destroy',$destete->id],'method'=>'DELETE'])!!}
-                <!--protegemos el filtro a la hora de eliminar-->
-  
+    <!--Metodo delete para poder eleminar los datos -->
+    <td> {!!Form::open(['route'=> ['destete.destroy',$destete->id],'method'=>'DELETE'])!!} 
+      <!--protegemos el filtro a la hora de eliminar--> 
+      
       {!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
       {!!Form::close()!!} </td>
-              </tr>
+  </tr>
 </table>
-@endsection
-<!--se pone por la calculadora-->
+@endsection 
+<!--se pone por la calculadora--> 

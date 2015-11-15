@@ -1,5 +1,5 @@
 @extends('template.template')
-@section('content')
+@section('content') 
 <!--menu principal-->
 <div class="row">
   <div class="col-md-12">
@@ -27,6 +27,6 @@ laravel ofrece la manera de poder acceder con url-->
       <h5>Registrar Destete</h5>
     </div>
   </div>
-  </a>  </div>
+  </a> </div>
 @endsection
 @stop

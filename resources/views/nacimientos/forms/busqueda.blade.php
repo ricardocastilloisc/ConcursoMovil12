@@ -67,7 +67,7 @@
                     </table>
                   </div>
                   <!--termina--> 
-                   <!--dividimos las busquedas esta es la primera division que es 
+                  <!--dividimos las busquedas esta es la primera division que es 
                 busqueda por arete-->
                   <div class="col-md-12">
                     <table align="left">
@@ -100,9 +100,9 @@
                   </div>
                   <!--termina la primera división--> 
                 </div>
-
+                
                 <!-- terminar lo del metodo de busqueda--> 
-
+                
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

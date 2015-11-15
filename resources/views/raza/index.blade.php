@@ -13,24 +13,21 @@ del estilo text hacemos una tabla para poder ubicarlos -->
 
 <div class="row">
   <div class="col-md-12">
-  <table align="left">
-    <tr>
-      <td> {!!Form::open(['route'=>'raza.index','method'=>'GET', 'class'=>'navbar-form navbar-left','role'=>'search'])!!}
-        <div class="form-group"> {!!Form::text('nombre', null,['class'=>'form-control', 'placeholder'=>'Buscar por nombre'])!!} </div></td>
- 
-    
-    
-      <td><button type="submit" class="btn btn-default">Buscar</button>
-        {!!Form::close()!!} </td>
-      <!--Si existe una busque con el parametro nombre entonces muestrame esta parte de la tabla--> 
-      @if (isset($_GET['nombre'])) </tr>
-    <tr>
-      <td colspan="2"> {!!link_to_route('raza.index', $title='Volver a ver todas las razas', null, $attributes=['class'=>'btn btn-primary'])!!} </td>
-      @endif 
-      <!--termina la comprobación--> 
-    </tr>
-  </table>
-</div>
+    <table align="left">
+      <tr>
+        <td> {!!Form::open(['route'=>'raza.index','method'=>'GET', 'class'=>'navbar-form navbar-left','role'=>'search'])!!}
+          <div class="form-group"> {!!Form::text('nombre', null,['class'=>'form-control', 'placeholder'=>'Buscar por nombre'])!!} </div></td>
+        <td><button type="submit" class="btn btn-default">Buscar</button>
+          {!!Form::close()!!} </td>
+        <!--Si existe una busque con el parametro nombre entonces muestrame esta parte de la tabla--> 
+        @if (isset($_GET['nombre'])) </tr>
+      <tr>
+        <td colspan="2"> {!!link_to_route('raza.index', $title='Volver a ver todas las razas', null, $attributes=['class'=>'btn btn-primary'])!!} </td>
+        @endif 
+        <!--termina la comprobación--> 
+      </tr>
+    </table>
+  </div>
 </div>
 
 <!--terminamos la parte del formulario de la busqueda-->

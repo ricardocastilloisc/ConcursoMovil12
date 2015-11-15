@@ -21,7 +21,7 @@
                 <!--Aui va los formularios para los metodos de busquedas-->
                 
                 <div class="row"> 
-                
+                  
                   <!--segunda división busqueda por raza-->
                   <div class="col-md-12">
                     <table align="left">
@@ -52,7 +52,7 @@
                     </table>
                   </div>
                   <!--termina--> 
-   
+                  
                 </div>
                 <!-- terminar lo del metodo de busqueda--> 
               </div>

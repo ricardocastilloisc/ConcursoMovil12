@@ -1,5 +1,5 @@
 @extends('template.template')
-@section('content')
+@section('content') 
 <!--menu principal-->
 <div class="row">
   <div class="col-md-12">

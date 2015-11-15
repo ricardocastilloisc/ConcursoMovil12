@@ -16,7 +16,6 @@
 <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 <!--La seccion  de lo temos aperye de lo que no estan en el tema pricipl con 
 la finalidad de no saturar de tantos temas la vista principal-->
-
 @section('css')
 
      @show
@@ -82,7 +81,7 @@ la finalidad de no saturar de tantos temas la vista principal-->
 <!-- BOOTSTRAP SCRIPTS  --> 
 <script src="{{ asset('js/bootstrap.js') }}"></script> 
 <!--los js que no temos y podemos accesar 
-el cuales no saturen al tema principal-->
+el cuales no saturen al tema principal--> 
 @section('scripts')
      @show
 </body>

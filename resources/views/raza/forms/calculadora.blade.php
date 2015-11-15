@@ -1,13 +1,17 @@
 <!--Aqui tenemos la calculadora con sus respectivas
 funciones y se pueda sobre poner de la ventana actual-->
+
 <table align="rigth">
   <tbody>
-    <tr>
+      <tr>
+    
     <!--el boton principal que nos permitira poder acceder a la calculadora sobre
     puesta en la pagina sin 
     necesidad de redirccionarte a otra area de la aplicacion -->
     <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Calculadora</button>
+      
       <!-- Modal -->
+      
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog"> 
           <!-- Modal content-->
@@ -48,7 +52,7 @@ funciones y se pueda sobre poner de la ventana actual-->
                   <tr>
                     <td colspan="4" align="center">=</td>
                   </tr>
-                  </tr>
+                    </tr>
                   
                 </table>
                 </center>
@@ -61,6 +65,7 @@ funciones y se pueda sobre poner de la ventana actual-->
         </div>
       </div>
       </div></td>
-    </tr>
+      </tr>
+    
   </tbody>
 </table>
