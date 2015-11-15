@@ -124,6 +124,12 @@ class DesteteController extends Controller
      */
     public function edit($id)
     {
+
+        //redireccionamos a la vista
+        //por defecto tenemos que poner los datos en arreglso
+        return view('destete.edit',['destete'=>$this->destete]);
+        //
+        //
         //
     }
 
@@ -136,6 +142,14 @@ class DesteteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //buscar los valores
+        $this->destete->fill($request->all());
+        //luego guarda la actulización
+        $this->destete->save();
+        //envia un mensaje que en la vista aparecera
+        Session::flash('message','Destete Editado Correctamente');
+        //redireccioname
+        return Redirect::to('/destete');
         //
     }
 
@@ -147,6 +161,10 @@ class DesteteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->destete->delete();
+        //envia un mensaje
+        Session::flash('message','Destete Eliminada Correctamente');
+        //redireccioname    
+       return Redirect::to('/destete');
     }
 }
