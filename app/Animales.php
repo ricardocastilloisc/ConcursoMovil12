@@ -21,6 +21,7 @@ class Animales extends Model
 		'peso',
 		'sexo',
 		'arete_madre',
+		'vivo',
 		];
 //esta funcion es personalizada 
 //osea laravel no 
@@ -33,6 +34,7 @@ class Animales extends Model
 			->join('razas','razas.id','=','animales.raza_id')
 			->select('animales.*','razas.nombre as raza')
 			->orderBy('animales.nombre','ASC')
+			->where('vivo','1')
 			->paginate(4);
 	}
 
@@ -42,6 +44,7 @@ class Animales extends Model
 			->join('razas','razas.id','=','animales.raza_id')
 			->select('razas.id','razas.nombre as raza')
 			->orderBy('animales.nombre','ASC')
+			->where('vivo','1')
 			->lists('raza', 'razas.id');
 	}
 
@@ -52,6 +55,7 @@ class Animales extends Model
 			->select('animales.*','razas.nombre as raza')
 			->orderBy('animales.nombre','ASC')
 			->where('fecha_de_nacimiento',"!=","0000-00-00")
+			->where('vivo','1')
 			->paginate(4);
 	}
 
@@ -71,7 +75,8 @@ class Animales extends Model
     		$query->join('razas','razas.id','=','animales.raza_id')//join que coresponda
 			->select('animales.*','razas.nombre as raza')//lo que busco 
 			->orderBy('animales.nombre','ASC')//como lo ordeno
-			->where('arete',"LIKE","%$arete%");//como busca
+			->where('arete',"LIKE","%$arete%")
+			->where('vivo','1');//como busca
 	
     	}
     }	
@@ -83,7 +88,8 @@ class Animales extends Model
     		$query->join('razas','razas.id','=','animales.raza_id')
 			->select('animales.*','razas.nombre as raza')
 			->orderBy('animales.nombre','ASC')
-			->where('raza_id',"LIKE","%$raza_id%");
+			->where('raza_id',"LIKE","%$raza_id%")
+			->where('vivo','1');
 	
     	}
     }
@@ -95,7 +101,8 @@ class Animales extends Model
     		$query->join('razas','razas.id','=','animales.raza_id')
 			->select('animales.*','razas.nombre as raza')
 			->orderBy('animales.nombre','ASC')
-			->where('fecha_de_compra',"LIKE","%$fecha_de_compra%");
+			->where('fecha_de_compra',"LIKE","%$fecha_de_compra%")
+			->where('vivo','1');
 	
     	}
     }	
@@ -107,7 +114,8 @@ class Animales extends Model
     		$query->join('razas','razas.id','=','animales.raza_id')
 			->select('animales.*','razas.nombre as raza')
 			->orderBy('animales.nombre','ASC')
-			->where('fecha_de_nacimiento',"LIKE","%$fecha_de_nacimiento%");
+			->where('fecha_de_nacimiento',"LIKE","%$fecha_de_nacimiento%")
+			->where('vivo','1');
 	
     	}
     }	
@@ -119,7 +127,8 @@ class Animales extends Model
     		$query->join('razas','razas.id','=','animales.raza_id')
 			->select('animales.*','razas.nombre as raza')
 			->orderBy('animales.nombre','ASC')
-			->where('sexo',"LIKE","%$sexo%");
+			->where('sexo',"LIKE","%$sexo%")
+			->where('vivo','1');
 	
     	}
     }
@@ -131,7 +140,8 @@ class Animales extends Model
     		$query->join('razas','razas.id','=','animales.raza_id')
 			->select('animales.*','razas.nombre as raza')
 			->orderBy('animales.nombre','ASC')
-			->where('arete_madre',"LIKE","%$arete_madre%");
+			->where('arete_madre',"LIKE","%$arete_madre%")
+			->where('vivo','1');
 	
     	}
     }		

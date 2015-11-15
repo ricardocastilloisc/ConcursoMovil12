@@ -44,3 +44,4 @@ quermos es con Form-->
   {!!Form::label('Sexo:')!!}
   {!!Form::select('sexo', array('Hembra' => 'Hembra', 'Macho' => 'Macho'),null, ['class' => 'form-control'])!!}
 </div>
+<input type="hidden" name="vivo" value="1">

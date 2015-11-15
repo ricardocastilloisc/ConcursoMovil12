@@ -174,7 +174,7 @@ class NacimientoController extends Controller
         //madres con un where 
         //se podia hace una funcion 
         //pero causo problemas   
-        $madres = Animales::where('sexo','Hembra')->lists('arete','arete');
+        $madres = Animales::where('sexo','Hembra')->where('vivo','1')->lists('arete','arete');
         //buscamos todas las razas que pertenecen todas las madres
         //esto evita que busquemos todas las razas
         //por una extraña gran razon

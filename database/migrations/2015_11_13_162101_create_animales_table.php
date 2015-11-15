@@ -28,6 +28,7 @@ class CreateAnimalesTable extends Migration
             $table->date('fecha_de_nacimiento');
             $table->decimal('peso',11,3);
             $table->string('sexo',10);
+            $table->integer('vivo');
             $table->timestamps();
         });
     }

@@ -25,3 +25,4 @@ segun que le digamos al web service de por defecto
 {!!Form::label('Peso (kg):')!!}
 {!!Form::number('peso_actual',null,['step'=>'any','class'=>'form-control', 'placeholder'=>'peso en kg','style'=>'text-transform:uppercase','onkeyup'=>'javascript:this.value=this.value.toUpperCase();'])!!}
 </div>
+<input type="hidden" name="vivo" value="1">
