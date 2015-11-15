@@ -23,6 +23,13 @@ class NacimientoController extends Controller
      */
     public function index(Request $request)
     {
+        if($request->get('arete') =='' 
+            && $request->get('raza_id')==''
+            && $request->get('fecha_de_nacimiento')==''
+            && $request->get('sexo')==''
+            && $request->get('arete_madre')==''
+            )
+        {   
         $razas = Razas::lists('nombre', 'id'); 
           //para que los usuarios no tengan que teclear todo
             //la url hacemos un metodo ajasx
@@ -39,6 +46,46 @@ class NacimientoController extends Controller
         //volvemos 
         return view('nacimientos.index',compact('nacimientos','razas'));
         //
+        //
+        }
+        else 
+        {
+            //busqueda por arete
+             if($request->get('arete') !='')
+             {
+                $razas = Razas::lists('nombre', 'id'); 
+                $nacimientos = Animales::arete($request->get('arete'))->paginate(4);                
+                return view('nacimientos.index',compact('nacimientos','razas'));
+             }
+             //busqueda por raza
+             if($request->get('raza_id') !='')
+             {
+                $razas = Razas::lists('nombre', 'id'); 
+                $nacimientos = Animales::raza($request->get('raza_id'))->paginate(4);                
+                return view('nacimientos.index',compact('nacimientos','razas'));
+             }
+             //busqueda por compra
+             if($request->get('fecha_de_nacimiento') !='')
+             {
+                $razas = Razas::lists('nombre', 'id'); 
+                $nacimientos = Animales::fecha_de_nacimiento($request->get('fecha_de_nacimiento'))->paginate(4);                
+                return view('nacimientos.index',compact('nacimientos','razas'));
+             }
+             //busqueda por sexo:
+             if($request->get('sexo') !='')
+             {
+                $razas = Razas::lists('nombre', 'id'); 
+                $nacimientos = Animales::sexo($request->get('sexo'))->paginate(4);                
+                return view('nacimientos.index',compact('nacimientos','razas'));
+             }
+             //arete madre
+             if($request->get('arete_madre') !='')
+             {
+                $razas = Razas::lists('nombre', 'id'); 
+                $nacimientos = Animales::arete_madre($request->get('arete_madre'))->paginate(4);                
+                return view('nacimientos.index',compact('nacimientos','razas'));
+             }
+        }
     }
 
     /**

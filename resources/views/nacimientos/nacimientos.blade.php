@@ -57,7 +57,7 @@ visualizar en la paginacion-->
                 <td>{{$animal->sexo}}</td>
               </tr>
               <tr>
-                <td> {!!link_to_route('animal.edit', $title='Editar', $parameters=$animal->id, $attributes=['class'=>'btn btn-primary'])!!} </td>
+                <td> {!!link_to_route('nacimiento.edit', $title='Editar', $parameters=$animal->id, $attributes=['class'=>'btn btn-primary'])!!} </td>
               </tr>
             </tbody>
           </table>

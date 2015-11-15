@@ -122,5 +122,17 @@ class Animales extends Model
 			->where('sexo',"LIKE","%$sexo%");
 	
     	}
-    }	
+    }
+    ///buscar por arete madre
+    public function scopeARETE_MADRE($query, $arete_madre)
+    {
+    	if(trim($arete_madre) != "")
+    	{
+    		$query->join('razas','razas.id','=','animales.raza_id')
+			->select('animales.*','razas.nombre as raza')
+			->orderBy('animales.nombre','ASC')
+			->where('arete_madre',"LIKE","%$arete_madre%");
+	
+    	}
+    }		
 }

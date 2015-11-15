@@ -29,7 +29,7 @@
                         <td colspan="2"> {!!Form::label('Arete:')!!} </td>
                       </tr>
                       <tr>
-                        <td> {!!Form::open(['route'=>'animal.index','method'=>'GET', 'class'=>'navbar-form navbar-left','role'=>'search'])!!}
+                        <td> {!!Form::open(['route'=>'nacimiento.index','method'=>'GET', 'class'=>'navbar-form navbar-left','role'=>'search'])!!}
                           <div class="form-group"> {!!Form::text('arete', null,['class'=>'form-control', 'placeholder'=>'Buscar por arete'])!!} </div></td>
                         <td><button type="submit" class="btn btn-default">Buscar</button>
                           {!!Form::close()!!} </td>
@@ -44,7 +44,7 @@
                         <td colspan="2"> {!!Form::label('Raza:')!!} </td>
                       </tr>
                       <tr>
-                        <td> {!!Form::open(['route'=>'animal.index','method'=>'GET', 'class'=>'navbar-form navbar-left','role'=>'search'])!!}
+                        <td> {!!Form::open(['route'=>'nacimiento.index','method'=>'GET', 'class'=>'navbar-form navbar-left','role'=>'search'])!!}
                           <div class="form-group"> {!!Form::select('raza_id',$razas, null, array('class' => 'form-control'))!!} </div></td>
                         <td><button type="submit" class="btn btn-default">Buscar</button>
                           {!!Form::close()!!} </td>
@@ -56,17 +56,33 @@
                   <div class="col-md-12">
                     <table align="left">
                       <tr>
-                        <td colspan="2"> {!!Form::label('Fecha de Compra:')!!} </td>
+                        <td colspan="2"> {!!Form::label('Fecha de nacimiento:')!!} </td>
                       </tr>
                       <tr>
-                        <td> {!!Form::open(['route'=>'animal.index','method'=>'GET', 'class'=>'navbar-form navbar-left','role'=>'search'])!!}
-                          <div class="form-group"> {!!Form::date('fecha_de_compra',null, ['class' => 'form-control'])!!} </div></td>
+                        <td> {!!Form::open(['route'=>'nacimiento.index','method'=>'GET', 'class'=>'navbar-form navbar-left','role'=>'search'])!!}
+                          <div class="form-group"> {!!Form::date('fecha_de_nacimiento',null, ['class' => 'form-control'])!!} </div></td>
                         <td><button type="submit" class="btn btn-default">Buscar</button>
                           {!!Form::close()!!} </td>
                       </tr>
                     </table>
                   </div>
                   <!--termina--> 
+                   <!--dividimos las busquedas esta es la primera division que es 
+                busqueda por arete-->
+                  <div class="col-md-12">
+                    <table align="left">
+                      <tr>
+                        <td colspan="2"> {!!Form::label('Arete madre:')!!} </td>
+                      </tr>
+                      <tr>
+                        <td> {!!Form::open(['route'=>'nacimiento.index','method'=>'GET', 'class'=>'navbar-form navbar-left','role'=>'search'])!!}
+                          <div class="form-group"> {!!Form::text('arete_madre', null,['class'=>'form-control', 'placeholder'=>'Buscar por arete'])!!} </div></td>
+                        <td><button type="submit" class="btn btn-default">Buscar</button>
+                          {!!Form::close()!!} </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <!--termina la primera división--> 
                   <!--dividimos las busquedas
                          quinta division busqueda por sexo-->
                   <div class="col-md-12">
@@ -75,7 +91,7 @@
                         <td colspan="2"> {!!Form::label('Sexo:')!!} </td>
                       </tr>
                       <tr>
-                        <td> {!!Form::open(['route'=>'animal.index','method'=>'GET', 'class'=>'navbar-form navbar-left','role'=>'search'])!!}
+                        <td> {!!Form::open(['route'=>'nacimiento.index','method'=>'GET', 'class'=>'navbar-form navbar-left','role'=>'search'])!!}
                           <div class="form-group"> {!!Form::select('sexo', array('Hembra' => 'Hembra', 'Macho' => 'Macho'),null, ['class' => 'form-control'])!!} </div></td>
                         <td><button type="submit" class="btn btn-default">Buscar</button>
                           {!!Form::close()!!} </td>
@@ -84,7 +100,9 @@
                   </div>
                   <!--termina la primera división--> 
                 </div>
+
                 <!-- terminar lo del metodo de busqueda--> 
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -97,7 +115,7 @@
       @if ((isset($_GET['arete']))||(isset($_GET['raza_id']))||(isset($_GET['fecha_de_compra']))||(isset($_GET['fecha_de_nacimiento']))||(isset($_GET['sexo'])) )
       <td> || </td>
       <!--Redirigete-->
-      <td> {!!link_to_route('animal.index', $title='Volver a ver todos lo animales', null, $attributes=['class'=>'btn btn-primary'])!!} </td>
+      <td> {!!link_to_route('nacimiento.index', $title='Volver a ver todos lo animales', null, $attributes=['class'=>'btn btn-primary'])!!} </td>
       @endif 
       <!--termina--> 
     </tr>

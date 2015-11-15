@@ -3,7 +3,7 @@
 @section('content')
 @include('alerts.success')
 <!--Agregamos una ventan con los diferetes metodos de busqueda-->
-@include('nacimientos.forms.busqueda')
+@include('animales.forms.busqueda')
 <div class="row">
   <div class="col-md-12">
     <h4 class="page-head-line">Animales</h4>

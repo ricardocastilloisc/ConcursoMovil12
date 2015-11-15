@@ -3,7 +3,7 @@
 @section('content')
 @include('alerts.success')
 <!--Agregamos una ventan con los diferetes metodos de busqueda-->
-@include('animales.forms.busqueda')
+@include('nacimientos.forms.busqueda')
 <div class="row">
   <div class="col-md-12">
     <h4 class="page-head-line">Animales</h4>
@@ -84,7 +84,7 @@
                   <td>{{$animal->sexo}}</td>
                 </tr>
                 <tr>
-                  <td> {!!link_to_route('animal.edit', $title='Editar', $parameters=$animal->id, $attributes=['class'=>'btn btn-primary'])!!} </td>
+                  <td> {!!link_to_route('nacimiento.edit', $title='Editar', $parameters=$animal->id, $attributes=['class'=>'btn btn-primary'])!!} </td>
                 </tr>
               </tbody>
             </table>
