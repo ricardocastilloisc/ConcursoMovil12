@@ -20,7 +20,7 @@ como nuevo accedemos al
 metodo store y para poder ejecutarlo con eficiencia -->
 	{!!Form::open(['route'=>'crecimiento.store', 'method'=>'POST'])!!}
 		<!--incluimos el formlario osea estamos reciclando el odigo-->
-		@include('crecimientos.forms.usr')
+		@include('crecimientos.forms.create')
 		{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
 		<!--Cerramos el formulario-->
 	{!!Form::close()!!}

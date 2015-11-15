@@ -86,6 +86,11 @@ class CrecimientoController extends Controller
      */
     public function store(CrecimientoRequest $request)
     {
+        
+        //resguardamos la variable del filtro 
+        $valor  = $_POST['animal_id'];
+        //link para direccionar y se vea el cambio
+        $direccionamiento = '/crecimiento?animal_id='.$valor;
         //esta funcion lo que hace es que crea 
         //por metodo post todo 
         //lo datos en la tabla
@@ -93,7 +98,7 @@ class CrecimientoController extends Controller
         Crecimiento::create($request->all());
         //esta parte es para mandar un mensaje con una variable
         Session::flash('message','Crecimiento Creado Correctamente');
-        return Redirect::to('/crecimiento/show');
+        return Redirect::to($direccionamiento);
         //
         //
         //
