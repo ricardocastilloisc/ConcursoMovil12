@@ -3,7 +3,7 @@
 @include('alerts.success')
 <div class="row margin-bottom: 0px;">
   <div class="col-md-12">
-    <h4 class="page-head-line">Razas</h4>
+    <h4 class="page-head-line">Crecimientos</h4>
   </div>
 </div>
 

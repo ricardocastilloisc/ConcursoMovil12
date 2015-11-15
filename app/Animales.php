@@ -47,6 +47,18 @@ class Animales extends Model
 			->where('vivo','1')
 			->lists('raza', 'razas.id');
 	}
+	public static function Carness()
+	{
+		return DB::table('animales')->select('animales.*')
+			->where('vivo','1')
+			->lists('arete', 'id');
+	}
+	public static function CarnessM()
+	{
+		return DB::table('animales')->select('animales.*')
+			->where('vivo','0')
+			->lists('arete', 'id');
+	}
 
 	public static function AnimalessNacimiento()
 	{

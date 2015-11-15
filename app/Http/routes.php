@@ -26,3 +26,6 @@ Route::resource('crecimiento','CrecimientoController');
 
 //accedemos al controlador de destete
 Route::resource('destete','DesteteController');
+
+//accedemos al controlador de carne
+Route::resource('carne','CarneController');

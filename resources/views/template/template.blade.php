@@ -48,9 +48,9 @@ la finalidad de no saturar de tantos temas la vista principal-->
             <li><a href="{!!URL::to('/nacimiento/show')!!}">Nacimientos</a></li>
             <li><a href="{!!URL::to('/crecimiento/show')!!}">Crecimiento</a></li>
             <li><a href="{!!URL::to('/destete/show')!!}">Destete</a></li>
-            <li><a href="login.html">Carne</a></li>
+            <li><a href="{!!URL::to('/carne/show')!!}">Carne</a></li>
             <li><a href="login.html">Preñimientos</a></li>
-            <li><a href="login.html">Email: Usuario</a></li>
+            <li><a href="login.html">Salir</a></li>
           </ul>
           </li>
           </li>
