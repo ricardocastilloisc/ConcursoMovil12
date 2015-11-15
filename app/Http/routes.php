@@ -23,3 +23,6 @@ Route::resource('nacimiento','NacimientoController');
 
 //accedemos al controlador de crecmimiento
 Route::resource('crecimiento','CrecimientoController');
+
+//accedemos al controlador de destete
+Route::resource('destete','DesteteController');

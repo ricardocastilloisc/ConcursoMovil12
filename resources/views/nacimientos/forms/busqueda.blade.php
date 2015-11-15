@@ -112,7 +112,7 @@
         </div>
         </div></td>
       <!--Mostrar la vuelta de resultados si existen algunos de esos--> 
-      @if ((isset($_GET['arete']))||(isset($_GET['raza_id']))||(isset($_GET['fecha_de_compra']))||(isset($_GET['fecha_de_nacimiento']))||(isset($_GET['sexo'])) )
+      @if ((isset($_GET['arete']))||(isset($_GET['raza_id']))||(isset($_GET['arete_madre']))||(isset($_GET['fecha_de_compra']))||(isset($_GET['fecha_de_nacimiento']))||(isset($_GET['sexo'])) )
       <td> || </td>
       <!--Redirigete-->
       <td> {!!link_to_route('nacimiento.index', $title='Volver a ver todos lo animales', null, $attributes=['class'=>'btn btn-primary'])!!} </td>

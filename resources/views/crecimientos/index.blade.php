@@ -32,6 +32,7 @@ del estilo text hacemos una tabla para poder ubicarlos -->
   </table>
 </div>
 </div>
+<br>
 
 <!--terminamos la parte del formulario de la busqueda-->
 
@@ -43,7 +44,7 @@ del estilo text hacemos una tabla para poder ubicarlos -->
     <!--para poder acceder a la varable como un arreglo
     en este caso  el crecimiento que ha tenido--> 
           <div class="panel panel-default">
-        <div class="panel-heading"> <strong>Datos del Arete:{{ $animal->arete }} </strong> </div>
+        <div class="panel-heading"> <strong>Datos del Arete: {{ $animal->arete }} </strong> </div>
         <div class="panel-body">
           <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover">

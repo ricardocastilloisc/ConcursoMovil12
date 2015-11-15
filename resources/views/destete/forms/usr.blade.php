@@ -29,7 +29,7 @@ segun que le digamos al web service de por defecto
 </div>
 
 <!--aqui podemos reguardar el filtro para que redireccione al crecmineto que hemos creado
-o que hemos creado o que hemos-->
+o que hemos creado o que hemos    -->
 {!! Form::hidden('animal_id', null) !!}
 <input type="hidden" name="vivo" value="1">
 
