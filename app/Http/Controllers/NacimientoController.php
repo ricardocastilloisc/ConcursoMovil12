@@ -145,6 +145,7 @@ class NacimientoController extends Controller
         //que esta en nuestra base de datos
         Animales::create($request->all());
         //esta parte es para mandar un mensaje con una variable
+        Session::flash('message','Nacimiento Creado Correctamente');
         return Redirect::to('/nacimiento');
         //
         //

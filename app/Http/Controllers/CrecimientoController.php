@@ -6,10 +6,11 @@ use Illuminate\Routing\Route;
 use Session;
 use Redirect;
 use ConcursoMovil12\Crecimiento;
-use ConcursoMovil12\Http\Requests;
-use ConcursoMovil12\Http\Controllers\Controller;
 use ConcursoMovil12\Animales;
 use ConcursoMovil12\Http\Requests\CrecimientoRequest;
+use ConcursoMovil12\Http\Requests;
+use ConcursoMovil12\Http\Controllers\Controller;
+
 
 class CrecimientoController extends Controller
 {
@@ -91,6 +92,7 @@ class CrecimientoController extends Controller
         //que esta en nuestra base de datos
         Crecimiento::create($request->all());
         //esta parte es para mandar un mensaje con una variable
+        Session::flash('message','Crecimiento Creado Correctamente');
         return Redirect::to('/crecimiento/show');
         //
         //
@@ -116,7 +118,13 @@ class CrecimientoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    { 
+      //buscamos todos los animales por el arete
+        $crecimientos = Animales::lists('arete', 'id');
+        //redireccionamos a la vista
+        //por defecto tenemos que poner los datos en arreglso
+        return view('crecimientos.edit',['crecimiento'=>$this->crecimiento,'crecimientos'=>$crecimientos]);
+        //
         //
     }
 
@@ -127,9 +135,25 @@ class CrecimientoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CrecimientoRequest $request, $id)
     {
-        //
+        //resguardamos la variable del filtro 
+        $valor  = $_POST['animal_id'];
+        //link para direccionar y se vea el cambio
+        $direccionamiento = '/crecimiento?animal_id='.$valor;
+
+        //si recuerdas
+        //optimizamos el codigo 
+        //ya los datos estan por defecto 
+        //y lo unico que esta haciendo esta parte es traerlos todo 
+        //los que declaramos en el modelo
+        $this->crecimiento->fill($request->all());
+        //luego guarda la actulización
+        $this->crecimiento->save();
+        //envia un mensaje que en la vista aparecera
+        Session::flash('message','Crecimiento Editado Correctamente');
+        //redireccioname
+        return Redirect::to($direccionamiento);
     }
 
     /**
@@ -140,6 +164,15 @@ class CrecimientoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //resguardamos la variable del filtro 
+        $valor  = $_POST['animal_id'];
+        //link para direccionar y se vea el cambio
+        $direccionamiento = '/crecimiento?animal_id='.$valor;
+        //accedemos a los datos y los eleimina
+        $this->crecimiento->delete();
+        //envia un mensaje
+        Session::flash('message','Crecimiento Eliminada Correctamente');
+        //redireccioname    
+       return Redirect::to($direccionamiento);
     }
 }
