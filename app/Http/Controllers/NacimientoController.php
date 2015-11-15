@@ -21,6 +21,24 @@ class NacimientoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //el constructor permitira buscar lo que necesitamos 
+    //para no delararlo cada rato esto optimiza el codigo 
+    //y es mas limpio
+    public function __construct()
+    {
+        //antes de hacer todo
+        //declarame la funcipn find
+        //y se va usar para los metodos que estan en el arreglo
+        $this->beforeFilter('@find',['only' =>['edit','update','destroy']]);    
+    }
+    //busca la información que necesitamos en la ruta tal que declaramos 
+    //en el framework
+    public function find(Route $route)
+    {
+        //solo le decimos que 
+        //acceda en en la routa del parametro 
+        $this->nacimientos = Animales::find($route->getParameter('nacimiento')); 
+    }
     public function index(Request $request)
     {
         if($request->get('arete') =='' 
@@ -152,6 +170,22 @@ class NacimientoController extends Controller
      */
     public function edit($id)
     {
+        //buscamos a todas las 
+        //madres con un where 
+        //se podia hace una funcion 
+        //pero causo problemas   
+        $madres = Animales::where('sexo','Hembra')->lists('arete','arete');
+        //buscamos todas las razas que pertenecen todas las madres
+        //esto evita que busquemos todas las razas
+        //por una extraña gran razon
+        //en este si funciono la funcion del
+        //modelo
+        $razas = Animales::AnimalessRazas();
+        //redireccionamos a la vista pasamos lo que buscamos
+        //en nuestras busquedas con las funciones
+        $razas = Razas::lists('nombre', 'id');
+        //por defecto tenemos que poner los datos en arreglso
+        return view('nacimientos.edit',['nacimientos'=>$this->nacimientos,'razas'=>$razas,'madres'=>$madres]);
         //
     }
 
@@ -162,11 +196,23 @@ class NacimientoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NacimientoUpdateRequest $request, $id)
     {
+        //si recuerdas
+        //optimizamos el codigo 
+        //ya los datos estan por defecto 
+        //y lo unico que esta haciendo esta parte es traerlos todo 
+        //los que declaramos en el modelo
+        $this->nacimientos->fill($request->all());
+        //luego guarda la actulización
+        $this->nacimientos->save();
+        //envia un mensaje que en la vista aparecera
+        Session::flash('message','Animal Editado Correctamente');
+        //redireccioname
+        return Redirect::to('/nacimiento');
+        //
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -175,6 +221,13 @@ class NacimientoController extends Controller
      */
     public function destroy($id)
     {
+        //accedemos a los datos y los eleimina
+        $this->nacimientos->delete();
+        //envia un mensaje
+        Session::flash('message','Animal Eliminada Correctamente');
+        //redireccioname    
+        return Redirect::to('/nacimiento');
+        //
         //
     }
 }
