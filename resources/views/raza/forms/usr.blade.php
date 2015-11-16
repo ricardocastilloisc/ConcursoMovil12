@@ -2,7 +2,7 @@
   {!!Form::text('nombre',null,['class'=>'form-control', 'placeholder'=>'Ingresa el Nombre de la Raza','style'=>'text-transform:uppercase','onkeyup'=>'javascript:this.value=this.value.toUpperCase();'])!!} </div>
 <div class="form-group">
   <label>Tiempo Aproximado de procucción</label>
-  <label>(Ponga el tiempo si proviende derivado de vacas o hebras)</label>
+
   {!!Form::number('minutos_de_produccion_de_leche',null,['class'=>'form-control', 'placeholder'=>'En minutos','style'=>'text-transform:uppercase','onkeyup'=>'javascript:this.value=this.value.toUpperCase();'])!!} </div>
 <div class="form-group"> {!!Form::label('Cada cuando tiene mes de en celo: ')!!}
   {!!Form::number('dias_de_celo',null,['class'=>'form-control', 'placeholder'=>'En dias','style'=>'text-transform:uppercase','onkeyup'=>'javascript:this.value=this.value.toUpperCase();'])!!} </div>
