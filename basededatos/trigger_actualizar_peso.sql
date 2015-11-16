@@ -13,3 +13,9 @@ CREATE TRIGGER `actualizar_peso` AFTER INSERT ON `crecimientos`
 
 CREATE TRIGGER `cambiar_estado_a_vivo` AFTER DELETE ON `carnes`
  FOR EACH ROW UPDATE animales set vivo=1 WHERE id = OLD.animal_id
+
+
+
+
+ CREATE TRIGGER `celonotificacion` AFTER INSERT ON `animales`
+ FOR EACH ROW INSERT INTO notificacionescelo (animal_id, raza_id, tiempo) VALUES (NEW.id, NEW.raza_id, NOW())
