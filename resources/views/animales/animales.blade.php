@@ -23,7 +23,7 @@
                   <td>{{$animal->arete}}</td>
                 </tr>
                 <tr>
-                  <th>Animal:</th>
+                  <th>Raza:</th>
                 </tr>
                 <tr>
                   <td>{{$animal->raza}}</td>
