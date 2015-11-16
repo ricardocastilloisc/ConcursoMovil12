@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 14-11-2015 a las 04:09:25
+-- Tiempo de generación: 16-11-2015 a las 03:05:45
 -- Versión del servidor: 10.0.17-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -32,25 +32,14 @@ CREATE TABLE `animales` (
   `arete` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `raza_id` int(10) UNSIGNED NOT NULL,
   `fecha_de_compra` date NOT NULL,
-  `parir_id` int(11) NOT NULL,
-  `preniada_id` int(11) NOT NULL,
+  `arete_madre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `fecha_de_nacimiento` date NOT NULL,
-  `peso` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `peso` decimal(11,3) NOT NULL,
   `sexo` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `vivo` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `animales`
---
-
-INSERT INTO `animales` (`id`, `nombre`, `arete`, `raza_id`, `fecha_de_compra`, `parir_id`, `preniada_id`, `fecha_de_nacimiento`, `peso`, `sexo`, `created_at`, `updated_at`) VALUES
-(1, 'qwe', '123k', 1, '0000-00-00', 0, 0, '2015-11-02', '123kg', 'Hembra', '2015-11-14 01:32:27', '2015-11-14 01:32:27'),
-(2, 'Quimera', '1232k', 1, '0000-00-00', 0, 0, '2015-11-10', '12kg', 'Hembra', '2015-11-14 01:34:10', '2015-11-14 01:34:10'),
-(3, 'wqwq', 'qwwq', 1, '0000-00-00', 0, 0, '2015-11-04', 'qw', 'Hembra', '2015-11-14 02:35:05', '2015-11-14 02:35:05'),
-(4, 'wqwqqwwq', 'qwwqwqwqwq', 1, '2015-11-04', 0, 0, '2015-11-04', 'qw', 'Hembra', '2015-11-14 02:36:53', '2015-11-14 02:36:53'),
-(5, 'wqwq', 'wqqwwq', 1, '2015-11-16', 0, 0, '2015-11-04', 'qwwq', 'Macho', '2015-11-14 02:37:21', '2015-11-14 02:37:21');
 
 -- --------------------------------------------------------
 
@@ -60,9 +49,47 @@ INSERT INTO `animales` (`id`, `nombre`, `arete`, `raza_id`, `fecha_de_compra`, `
 
 CREATE TABLE `carnes` (
   `id` int(10) UNSIGNED NOT NULL,
+  `fecha_de_muerte` date NOT NULL,
+  `libras_de_aprovechamiento` decimal(11,3) NOT NULL,
+  `animal_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Disparadores `carnes`
+--
+DELIMITER $$
+CREATE TRIGGER `cambiar_estado_a_muerto` AFTER INSERT ON `carnes` FOR EACH ROW UPDATE animales set vivo=0 WHERE id = NEW.animal_id
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `cambiar_estado_a_vivo` AFTER DELETE ON `carnes` FOR EACH ROW UPDATE animales set vivo=1 WHERE id = OLD.animal_id
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `crecimientos`
+--
+
+CREATE TABLE `crecimientos` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `fecha_de_registro` date NOT NULL,
+  `peso_actual` decimal(11,3) NOT NULL,
+  `animal_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Disparadores `crecimientos`
+--
+DELIMITER $$
+CREATE TRIGGER `actualizar_peso` AFTER INSERT ON `crecimientos` FOR EACH ROW UPDATE animales set peso=New.peso_actual WHERE id = NEW.animal_id
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -72,6 +99,8 @@ CREATE TABLE `carnes` (
 
 CREATE TABLE `destetes` (
   `id` int(10) UNSIGNED NOT NULL,
+  `fecha_de_destete` date NOT NULL,
+  `animal_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -94,23 +123,12 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2014_10_12_000000_create_users_table', 1),
 ('2014_10_12_100000_create_password_resets_table', 1),
-('2015_11_13_124311_create_nacimientos_table', 1),
-('2015_11_13_124333_create_destetes_table', 1),
-('2015_11_13_124344_create_carnes_table', 1),
 ('2015_11_13_154457_create_razas_table', 1),
-('2015_11_13_162101_create_animales_table', 1);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `nacimientos`
---
-
-CREATE TABLE `nacimientos` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+('2015_11_13_162101_create_animales_table', 1),
+('2015_11_14_162856_create_crecimientos_table', 1),
+('2015_11_15_121715_create_destetes_table', 1),
+('2015_11_15_150126_create_carnes_table', 1),
+('2015_11_15_173903_create_preniars_table', 1);
 
 -- --------------------------------------------------------
 
@@ -127,6 +145,20 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `preniars`
+--
+
+CREATE TABLE `preniars` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `fecha_de_preniada` date NOT NULL,
+  `animal_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `razas`
 --
 
@@ -134,22 +166,11 @@ CREATE TABLE `razas` (
   `id` int(10) UNSIGNED NOT NULL,
   `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `minutos_de_produccion_de_leche` int(11) NOT NULL,
-  `meses_de_celo` int(11) NOT NULL,
-  `meses_de_gestacion` int(11) NOT NULL,
+  `dias_de_celo` int(11) NOT NULL,
+  `semanas_de_gestacion` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `razas`
---
-
-INSERT INTO `razas` (`id`, `nombre`, `minutos_de_produccion_de_leche`, `meses_de_celo`, `meses_de_gestacion`, `created_at`, `updated_at`) VALUES
-(1, 'Gato', 123, 2, 12, '2015-11-14 01:31:59', '2015-11-14 01:31:59'),
-(2, '3223', 123123, 123321, 123321, '2015-11-14 01:46:19', '2015-11-14 01:46:19'),
-(3, '21123231', 321321, 123123, 2147483647, '2015-11-14 01:46:31', '2015-11-14 01:46:31'),
-(4, '123213423123142', 421413413, 13441413, 2147483647, '2015-11-14 01:46:40', '2015-11-14 01:46:40'),
-(5, '412142142', 412142421, 421124124, 2147483647, '2015-11-14 01:46:49', '2015-11-14 01:46:49');
 
 -- --------------------------------------------------------
 
@@ -168,6 +189,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin@admin.com', '$2y$10$sy4Q3mwRuWEmJhj6.jJsduC7cFV/vWMq/IOrVhNaupL7No1ZCm2N2', 'XgWOql8ChSUQ7qUtfIOjwQRNBWOSsAwyCOua7xHYLo90Q6KtTg582RhsQJqE', '0000-00-00 00:00:00', '2015-11-16 02:05:22'),
+(2, 'admin1', 'admin1@admin1.com', '$2y$10$XTyH5zLXLZiqfI0gmGuRLuASqs37tQ6mP359r.3LzMuYxAzXuSpMO', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -182,19 +211,22 @@ ALTER TABLE `animales`
 -- Indices de la tabla `carnes`
 --
 ALTER TABLE `carnes`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `carnes_animal_id_foreign` (`animal_id`);
+
+--
+-- Indices de la tabla `crecimientos`
+--
+ALTER TABLE `crecimientos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `crecimientos_animal_id_foreign` (`animal_id`);
 
 --
 -- Indices de la tabla `destetes`
 --
 ALTER TABLE `destetes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `nacimientos`
---
-ALTER TABLE `nacimientos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `destetes_animal_id_foreign` (`animal_id`);
 
 --
 -- Indices de la tabla `password_resets`
@@ -202,6 +234,13 @@ ALTER TABLE `nacimientos`
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`),
   ADD KEY `password_resets_token_index` (`token`);
+
+--
+-- Indices de la tabla `preniars`
+--
+ALTER TABLE `preniars`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `preniars_animal_id_foreign` (`animal_id`);
 
 --
 -- Indices de la tabla `razas`
@@ -224,32 +263,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `animales`
 --
 ALTER TABLE `animales`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `carnes`
 --
 ALTER TABLE `carnes`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `crecimientos`
+--
+ALTER TABLE `crecimientos`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `destetes`
 --
 ALTER TABLE `destetes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT de la tabla `nacimientos`
+-- AUTO_INCREMENT de la tabla `preniars`
 --
-ALTER TABLE `nacimientos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `preniars`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `razas`
 --
 ALTER TABLE `razas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Restricciones para tablas volcadas
 --
@@ -259,6 +303,30 @@ ALTER TABLE `users`
 --
 ALTER TABLE `animales`
   ADD CONSTRAINT `animales_raza_id_foreign` FOREIGN KEY (`raza_id`) REFERENCES `razas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `carnes`
+--
+ALTER TABLE `carnes`
+  ADD CONSTRAINT `carnes_animal_id_foreign` FOREIGN KEY (`animal_id`) REFERENCES `animales` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `crecimientos`
+--
+ALTER TABLE `crecimientos`
+  ADD CONSTRAINT `crecimientos_animal_id_foreign` FOREIGN KEY (`animal_id`) REFERENCES `animales` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `destetes`
+--
+ALTER TABLE `destetes`
+  ADD CONSTRAINT `destetes_animal_id_foreign` FOREIGN KEY (`animal_id`) REFERENCES `animales` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `preniars`
+--
+ALTER TABLE `preniars`
+  ADD CONSTRAINT `preniars_animal_id_foreign` FOREIGN KEY (`animal_id`) REFERENCES `animales` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
