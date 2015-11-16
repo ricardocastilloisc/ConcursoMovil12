@@ -65,7 +65,7 @@ la finalidad de no saturar de tantos temas la vista principal-->
         {!!Form::label('contrasena','Contraseña:', ['class'=>'sr-only'])!!}
         {!!Form::password('password',['placeholder'=>'Contraseña...', 'class'=>'form-password form-control', 'id' => 'form-password'])!!}
       </div>
-      {!!Form::submit('Iniciar Sesión',['class'=>'btn btn-primary'])!!}
+      {!!Form::submit('Iniciar',['class'=>'btn btn-primary'])!!}
     {!!Form::close()!!}
         
       </div>
