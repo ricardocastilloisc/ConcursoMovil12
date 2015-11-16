@@ -22,6 +22,8 @@ class CarneController extends Controller
      */
     public function __construct()
     {
+        //debe estar logeado para poder acceder al controlador
+        $this->middleware('auth');
         //buscamos los datos para no solictarlo cada rato en 
         //en donde esta los edit y demas en el arreglos son las
         //funciones donde se haran las modificaciones

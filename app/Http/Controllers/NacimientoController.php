@@ -26,6 +26,8 @@ class NacimientoController extends Controller
     //y es mas limpio
     public function __construct()
     {
+        //debe estar logeado para poder acceder al controlador
+        $this->middleware('auth');
         //antes de hacer todo
         //declarame la funcipn find
         //y se va usar para los metodos que estan en el arreglo

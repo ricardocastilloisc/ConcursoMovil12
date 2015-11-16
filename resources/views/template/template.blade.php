@@ -31,7 +31,7 @@ la finalidad de no saturar de tantos temas la vista principal-->
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="{{ route('home') }}"> <img src="{{ asset('img/logo.png') }}" /> </a> </div>
+      <a class="navbar-brand" > <img src="{{ asset('img/logo.png') }}" /> </a> </div>
   </div>
 </div>
 <hr>
@@ -50,7 +50,7 @@ la finalidad de no saturar de tantos temas la vista principal-->
             <li><a href="{!!URL::to('/destete/show')!!}">Destete</a></li>
             <li><a href="{!!URL::to('/carne/show')!!}">Carne</a></li>
             <li><a href="{!!URL::to('/preniar/show')!!}">Preñimientos</a></li>
-            <li><a href="login.html">Salir</a></li>
+            <li><a href="{{ route('logout') }}">Salir</a></li>
           </ul>
           </li>
           </li>
@@ -71,6 +71,7 @@ la finalidad de no saturar de tantos temas la vista principal-->
     <div class="row">
       <div class="col-md-12"> &copy; Castillo Olivera Ricardo Orlando</div>
       <div class="col-md-12"> &copy; Novelo Sansores Alan Ernesto</div>
+   
     </div>
   </div>
 </footer>

@@ -11,7 +11,6 @@
 Route::get('/', [
 	'as' => 'home',
 	'uses'=>'FrontController@index'
-
 	]);
 //accedemos todos los controladores de animal nombrando la clave como animal
 Route::resource('animal','AnimalesController');
@@ -32,3 +31,12 @@ Route::resource('carne','CarneController');
 
 //accedemos al controlador de preniar
 Route::resource('preniar','PreniarController');
+
+
+//identificacion de usuario
+Route::resource('log','LogController');
+//inicio de sesión
+Route::get('logout', [
+	'as' => 'logout',
+	'uses'=>'LogController@logout'
+	]);
