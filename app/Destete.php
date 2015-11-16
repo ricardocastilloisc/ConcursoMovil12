@@ -24,7 +24,7 @@ class Destete extends Model
 		return DB::table('destetes')
 			->join('animales','animales.id','=','destetes.animal_id')
 			->select('destetes.*','animales.arete')
-			->orderBy('animales.arete','ASC')
+			->orderBy('destetes.fecha_de_destete','ASC')
 			->paginate(13);
 	}
 
@@ -35,7 +35,7 @@ class Destete extends Model
         {
             $query->join('animales','animales.id','=','destetes.animal_id')
 			->select('destetes.*','animales.arete')
-			->orderBy('animales.arete','ASC')
+			->orderBy('destetes.fecha_de_destete','ASC')
             ->where('fecha_de_destete',"$fecha_de_destete");
         }
     }
@@ -46,7 +46,7 @@ class Destete extends Model
         {
             $query->join('animales','animales.id','=','destetes.animal_id')
 			->select('destetes.*','animales.arete')
-			->orderBy('animales.arete','ASC')
+			->orderBy('destetes.fecha_de_destete','ASC')
 			->where('animal_id',"$animal_id");
         }
     }

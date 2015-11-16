@@ -29,3 +29,6 @@ Route::resource('destete','DesteteController');
 
 //accedemos al controlador de carne
 Route::resource('carne','CarneController');
+
+//accedemos al controlador de preniar
+Route::resource('preniar','PreniarController');

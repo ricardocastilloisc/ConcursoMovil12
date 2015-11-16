@@ -22,10 +22,12 @@ class Carne extends Model
     //
     public static function Carness()
 	{
+
+		
 		return DB::table('carnes')
 			->join('animales','animales.id','=','carnes.animal_id')
 			->select('carnes.*','animales.arete')
-			->orderBy('animales.arete','ASC')
+			->orderBy('carnes.fecha_de_muerte','ASC')
 			->paginate(13);
 	}
 		//busqueda por  fecha de destete
@@ -35,7 +37,7 @@ class Carne extends Model
         {
             $query->join('animales','animales.id','=','carnes.animal_id')
 			->select('carnes.*','animales.arete')
-			->orderBy('animales.arete','ASC')
+			->orderBy('carnes.fecha_de_muerte','ASC')
             ->where('fecha_de_muerte',"$fecha_de_muerte");
         }
     }
@@ -46,7 +48,7 @@ class Carne extends Model
         {
             $query->join('animales','animales.id','=','carnes.animal_id')
 			->select('carnes.*','animales.arete')
-			->orderBy('animales.arete','ASC')
+			->orderBy('carnes.fecha_de_muerte','ASC')
 			->where('animal_id',"$animal_id");
         }
     }
